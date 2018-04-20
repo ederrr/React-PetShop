@@ -1,0 +1,39 @@
+@media only screen and (max-width: 400px) {
+	.mobile-hide{ display: none !important; }
+}
+@media only screen and (max-width: 400px) {
+	.mobile{ display: inline !important; }
+}
+@media only screen and (min-width: 500px) {
+	.desktop-hide{ display: none !important; }
+}
+
+
+.navegacao {
+	background-color: #333;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar a{
+	text-decoration: none;
+	color: white;
+}
+.navbar a:hover{
+
+	text-decoration: none;
+	color:white;
+	background-color: forestgreen;
+}
+
+.login-area a{
+	font-size: 18px;
+	color: black;
+}
+
+.login-area a:hover{
+	color: green;
+}
+
+.produto:hover ,.servico :hover {
+	background-color: #dddddd;
+}
