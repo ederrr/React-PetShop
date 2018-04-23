@@ -1,3 +1,7 @@
 import {http} from './http'
+import React from 'react'
 
-export const fetchRepos = user => http.get(`users/${user}/repos`)
+export const fetchRepos = (local,categoria) => http.get(`${local}`,{params: {
+      categoria: `${categoria}`
+    }
+  })

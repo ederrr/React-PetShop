@@ -15,16 +15,18 @@ class Especie extends Component{
 			especie: props.especie
 		} 
 
+
+
 	}
 
 	componentWillReceiveProps(props){
 		this.setState((prevState, props) => ({especie: props.especie}));
-		fetchRepos(props.repos).then(res => this.setState({produtos: res.data}))
+		fetchRepos(props.repos, props.especie).then(res => this.setState({produtos: res.data}))
 	}
 
 	componentDidMount(props){
 		this.setState((prevState, props) => ({especie: props.especie}));
-		fetchRepos(this.props.repos).then(res => this.setState({produtos: res.data}))
+		fetchRepos(this.props.repos, this.props.especie).then(res => this.setState({produtos: res.data}))
 
 	}
 
