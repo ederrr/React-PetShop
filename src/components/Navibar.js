@@ -5,9 +5,9 @@ class Navibar extends Component{
 	render(){
 
 		return(
-			<nav className="navbar navegacao rounded p-0 ">
+			<nav className="navbar navbar-expand-lg navegacao rounded p-0 ">
  
-				<div className="container-fluid">
+				<div className="navbar-collapse ">
 					<div className="navbar-header desktop-hide">
 						<button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
 							<span className="fa fa-bars"></span>
@@ -17,7 +17,7 @@ class Navibar extends Component{
 				</div>
 
 
-				<div className="container-fluid navbar-collapse m-0 p-0 " id="myNavbar">
+				<div className="navibar collapse navbar-collapse m-0 p-0 " id="myNavbar">
 
 					<Link className="nav-link rounded py-2" to= "/">Início</Link>
 				

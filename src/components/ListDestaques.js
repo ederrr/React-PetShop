@@ -1,17 +1,36 @@
-import React ,{Component} from 'react';
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import {buscaCategoria} from '../service/acesso.api'
 
-class ListProduto extends Component{
+class ListDestaques extends Component{
+
+	constructor(props){
+
+		super(props)
+
+		this.state = {
+			produtos:[],
+			especie: props.especie
+		}
+
+	} 
+
+
+	componentDidMount(props){
+		this.setState((prevState, props) => ({especie: props.especie}));
+		buscaCategoria(this.props.repos, this.props.especie).then(res => this.setState({produtos: res.data}))
+
+	}
 
 	render(){
 		return(
 
-			<div>
+			<div className="div mb-3" >
 
-				<p className="h4" >Produtos para {this.props.especie}:</p>
+				<p className="h4" >Produtos para {this.state.especie}:</p>
 				
 				<div className="row">
-					{this.props.produtos.map( (produto) => (
+					{this.state.produtos.map( (produto,i) => { if (i<4) return( 
 						<Link className="col col-lg-3 col-sm-6 my-1" to= {`/Produto${produto.id}`} >
 							<div className=" shadow rounded text-center produto" >
 								<img className= "img-fluid p-3" src={require(`../assets/fotos/${produto.imagem}`)} alt="foto do produto" />
@@ -20,7 +39,7 @@ class ListProduto extends Component{
 									<p className=" text-center text text-secondary price" >{produto.preco}</p>
 								</div>
 							</div>
-						</Link>))}
+						</Link>)})}
 				</div>
 				
 			</div>
@@ -31,4 +50,5 @@ class ListProduto extends Component{
 	}
 }
 
-export default ListProduto;
+
+export default ListDestaques;

@@ -16,7 +16,7 @@ class Conteudo extends Component{
 				<Route path='/Gatos' render = {(props) => <Especie {...props} especie="gatos" repos= "produto"/>}  /> 
 				<Route path='/Cachorros' render = {(props) => <Especie {...props} especie="cachorros" repos= "produto"/>} />
 				<Route path='/Servicos' component = {Servicos}/>
-				<Route path='/Produto:id' component = {Produto} />
+				<Route path='/Produto:id' render = {(props) => <Produto {...props} repos= "produto"/>} />
 
 			</Switch>
 			</div>

@@ -5,7 +5,7 @@ class Login extends Component{
 	render(){
 
 		return(
-				<div className="login-area col-lg-2 m-auto " >
+				<div className="login-area col-lg-2 text-center my-auto" >
 					<a href="usuario.html"><span className="fa fa-user"></span>Usuário</a> /
 					<a href="#logout">Sair</a>
 					<div>

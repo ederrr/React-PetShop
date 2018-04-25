@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {fetchRepos} from '../service/repos.api'
+import {buscaCategoria} from '../service/acesso.api'
 
 import ListProduto from './ListProduto';
 
@@ -21,12 +21,12 @@ class Especie extends Component{
 
 	componentWillReceiveProps(props){
 		this.setState((prevState, props) => ({especie: props.especie}));
-		fetchRepos(props.repos, props.especie).then(res => this.setState({produtos: res.data}))
+		buscaCategoria(props.repos, props.especie).then(res => this.setState({produtos: res.data}))
 	}
 
 	componentDidMount(props){
 		this.setState((prevState, props) => ({especie: props.especie}));
-		fetchRepos(this.props.repos, this.props.especie).then(res => this.setState({produtos: res.data}))
+		buscaCategoria(this.props.repos, this.props.especie).then(res => this.setState({produtos: res.data}))
 
 	}
 

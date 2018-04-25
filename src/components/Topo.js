@@ -10,7 +10,7 @@ class Topo extends Component{
 			<header>
 				<div className="row m-auto py-2 ">
 					<div id="logo" className="col-lg-3 m-auto">
-						<img id="img-logo" src={logo} alt="logo da pagina"/>
+						<img className="img-fluid w-100" id="img-logo" src={logo} alt="logo da pagina"/>
 					</div>
 					<Busca/>
 					<Login/>
