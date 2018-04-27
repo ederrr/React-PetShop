@@ -7,7 +7,7 @@ class Navibar extends Component{
 		return(
 			<nav className="navbar navbar-expand-lg navegacao rounded p-0 ">
  
-				<div className="navbar-collapse ">
+				<div className="navbar-collapse">
 					<div className="navbar-header desktop-hide">
 						<button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
 							<span className="fa fa-bars"></span>
