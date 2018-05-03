@@ -8,7 +8,7 @@ class SlideShow extends Component{
 	render(){
 		return(
 
-			<div id="demo" className="carousel slide mx-auto my-3 text-center" data-ride="carousel">
+			<div id="demo" className="carousel slide mx-auto my-3 px-lg-5" data-ride="carousel">
 
 				<ul className="carousel-indicators">
 					<li data-target="#demo" data-slide-to="0" className="active"></li>

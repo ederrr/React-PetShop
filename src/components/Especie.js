@@ -15,8 +15,6 @@ class Especie extends Component{
 			especie: props.especie
 		} 
 
-
-
 	}
 
 	componentWillReceiveProps(props){

@@ -5,7 +5,7 @@ class Navibar extends Component{
 	render(){
 
 		return(
-			<nav className="navbar navbar-expand-lg navegacao rounded p-0 ">
+			<nav className="navbar navbar-expand-md navegacao rounded p-0 ">
  
 				<div className="navbar-collapse">
 					<div className="navbar-header desktop-hide">
