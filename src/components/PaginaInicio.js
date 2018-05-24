@@ -15,6 +15,11 @@ class PaginaInicio extends Component{
 
 					<ListDestaques repos="produto" especie="cachorros"/>
 					<ListDestaques repos="produto" especie="gatos"/>
+					<ListDestaques repos="produto" especie="cavalos"/>
+					<ListDestaques repos="produto" especie="roedores"/>
+					<ListDestaques repos="produto" especie="passaros"/>
+					<ListDestaques repos="produto" especie="peixes"/>
+					<ListDestaques repos="produto" especie="exóticos"/>
 					
 
 				</div>

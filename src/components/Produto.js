@@ -1,6 +1,9 @@
 import React,{Component} from 'react';
 import {buscaID} from '../service/acesso.api'
 import {Miniatura } from './Miniatura.js'
+import CalculoFrete from './CalculoFrete.js'
+import {Link} from 'react-router-dom';
+
 
 class Produto extends Component{
 
@@ -13,10 +16,11 @@ class Produto extends Component{
 		this.state = {
 			id : this.props.match.params.id,
 			nome: "",
-			preco: 1,
+			preco: 0,
 			descricao: "",
 			imagem: "bird.jpg",
-			categoria: ""
+			categoria: "",
+			informacoes: [{nome: "Marca", descricao: "Mad Max"},{nome: "Marca", descricao: "Mad Max"},{nome: "Marca", descricao: "Mad Max"}]
 
 		}
 
@@ -57,17 +61,11 @@ class Produto extends Component{
 						<p className="h1 text-center">{this.state.nome}</p>
 						<p className="h4 text-secondary my-lg-5">{`R$ ${this.state.preco}`}</p>
 
-						<button className="btn btn-success w-50 my-lg-5">COMPRAR</button>
+						<Link to={`/Carrinho${this.state.id}`} className="btn btn-success text-center w-50 my-lg-5">COMPRAR</Link>
 
 						
-						<p className="h5">Calcular Frete:</p>
-						<div className="input-group row mx-auto"><input className="input offset-lg-2 col-lg-5 rounded" type="text"></input><button className="btn col-lg-3 ">Calcular</button></div>
-						<p className="h5 pt-5">Prazo de Entrega:</p>
-						<p className="h5 text-secondary">Dia de São Nunca</p>
-						<p className="h5">Valor do Frete:</p>
-						<p className="h5 text-secondary">R$2,99</p>
+						<CalculoFrete produto = {this.state}/>
 
-						
 
 					</div>
 
@@ -76,9 +74,21 @@ class Produto extends Component{
 					<p className="h5">Descricao:</p>
 					<p >{this.state.descricao}</p>
 				</div>
+
 				<div className="row rounded border p-3">
 				<p className="h5">Informações:</p>
 
+					<table className="table table-hover table-bordered table-striped m-4">
+						<tbody>
+						{this.state.informacoes.map( (info) => 
+						<tr>
+							<td>{info.nome}</td>
+							<td>{info.descricao}</td>
+						</tr>
+						)}
+						</tbody>
+					</table>
+		
 				</div>
 
 			</div>

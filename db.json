@@ -53,8 +53,8 @@
 			"nome": "Produto 7",
 			"preco": 1.25,
 			"descricao": "...",
-			"imagem": "cat.jpg",
-			"categoria": "gatos"
+			"imagem": "horse.jpg",
+			"categoria": "cavalos"
 		},
 		{
 			"id": 8,
@@ -152,6 +152,49 @@
 			"imagem": "dog.jpg",
 			"categoria": "cachorros"
 		}
-
+	],
+	"usuario":[
+		{
+			"id": 1,
+			"nome": "Eder Ribeiro",
+			"senha": 1234,
+			"descricao": "...",
+			"imagem": "user.jpg",
+			"categoria": "gatos"
+		}
+	],
+	"servico":[
+		{
+			"id": 1,
+			"nome": "Banho",
+			"descricao": "Banho com shampoo neutro específico para animais para realizar a limpeza mais delicada (segundo enxágue). Com o ar aquecido, o acabamento do banho é realizado com a secagem e escovação dos pelos ao mesmo tempo. Este processo é realizado até a retirada total da umidade.",
+			"imagem": "banho.png",
+			"preco":{
+				"descricao" : "Valor especificado dependendo da espécie e raça do animal.",
+				"preco" : 1.00
+			}
+		},
+		{
+			"id": 2,
+			"nome": "Tosa",
+			"descricao": "Banho com shampoo neutro específico para animais para realizar a limpeza mais delicada (segundo enxágue). Com o ar aquecido, o acabamento do banho é realizado com a secagem e escovação dos pelos ao mesmo tempo. Este processo é realizado até a retirada total da umidade.",
+			"imagem": "tosa.png",
+			"preco":{
+				"descricao" : "Valor especificado dependendo da espécie e raça do animal.",
+				"preco" : 1.00
+			}
+		},
+		{
+			"id": 3,
+			"nome": "Hospedagem",
+			"descricao": "Banho com shampoo neutro específico para animais para realizar a limpeza mais delicada (segundo enxágue). Com o ar aquecido, o acabamento do banho é realizado com a secagem e escovação dos pelos ao mesmo tempo. Este processo é realizado até a retirada total da umidade.",
+			"imagem": "hospedagem.png",
+			"preco":{
+				"descricao" : "Valor especificado dependendo da espécie e raça do animal.",
+				"preco" : 1.00
+			}
+		}
 	]
+
+
 }

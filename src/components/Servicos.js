@@ -1,32 +1,41 @@
 import React, {Component} from 'react';
+import {buscaCategoria} from '../service/acesso.api'
 
-import banho from '../assets/fotos/banho.png';
 
-const listaServicos = {
+class Servicos extends Component{
 
-	servico: [
-		{nome: "Banho", descricao: "Banho com shampoo neutro específico para animais para realizar a limpeza mais delicada (segundo enxágue). Com o ar aquecido, o acabamento do banho é realizado com a secagem e escovação dos pelos ao mesmo tempo. Este processo é realizado até a retirada total da umidade.", infoValor: "* Valor especificado dependendo da espécie e raça do animal."},
-		{nome: "Banho", descricao: "Banho com shampoo neutro específico para animais para realizar a limpeza mais delicada (segundo enxágue). Com o ar aquecido, o acabamento do banho é realizado com a secagem e escovação dos pelos ao mesmo tempo. Este processo é realizado até a retirada total da umidade.", infoValor: "* Valor especificado dependendo da espécie e raça do animal."}
+	constructor(props){
 
-	]
-};
+		super(props)
 
-class Especie extends Component{
+		this.state = {
+			servicos:[]
+		}
+
+	} 
+
+
+	componentDidMount(props){
+		//this.setState((prevState, props) => ({especie: props.especie}));
+		buscaCategoria("servico", "").then(res => {  this.setState({servicos: res.data})})
+
+	}
 
 	render(){
 		return(
 			<div>
-			{listaServicos.servico.map( (servico) => 
-			<div className="row servico rounded border text-center my-3 px-3" >
+			<p className="h4">Serviços:</p>
+			{this.state.servicos.map( (servico) => 
+			<div key= {servico.id} className="row servico rounded border text-center my-3 px-3" >
 				
 				<div className="row">
 					<div className=" col imagem my-auto">
-						<img className="img-fluid" src={banho} alt="imagem do servico"/>
+						<img className="img-fluid" src={require(`../assets/fotos/${servico.imagem}`)} alt="imagem do servico"/>
 					</div>
 					<div className=" col col-lg-7 resumo my-auto">
 						<p className="h3 text-center">{servico.nome}</p>
 						<p className="text-justify">{servico.descricao}</p>
-						<p className="valor">{servico.infoValor}</p>
+						<p className="valor">{"*"+servico.preco.descricao}</p>
 					</div>
 					<div className = " col my-auto">
 						<button className="bt-agendar btn-success" >Agendar</button>
@@ -41,4 +50,4 @@ class Especie extends Component{
 }
 
 
-export default Especie;
+export default Servicos;
