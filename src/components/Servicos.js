@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {buscaCategoria} from '../service/acesso.api'
+import {Link} from 'react-router-dom';
 
 
 class Servicos extends Component{
@@ -37,9 +38,9 @@ class Servicos extends Component{
 						<p className="text-justify">{servico.descricao}</p>
 						<p className="valor">{"*"+servico.preco.descricao}</p>
 					</div>
-					<div className = " col my-auto">
+					<Link to={`/AgendarServico${servico.id}`} className = " col my-auto">
 						<button className="bt-agendar btn-success" >Agendar</button>
-					</div>
+					</Link>
 				</div>
 
 			</div >)}

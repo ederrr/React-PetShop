@@ -11,6 +11,7 @@ import CadastroProduto from './CadastroProduto';
 import CadastroPet from './CadastroPet';
 import CadastroServico from './CadastroServico';
 import CadastroUsuario from './CadastroUsuario';
+import AgendarServico from './AgendarServico';
 import {Switch, Route} from 'react-router-dom';
 
 
@@ -37,6 +38,7 @@ class Conteudo extends Component{
 				<Route exact path='/CadastroPet' component = {CadastroPet}/>
 				<Route exact path='/CadastroServico' component = {CadastroServico}/>
 				<Route exact path='/CadastroUsuario' component = {CadastroUsuario}/>
+				<Route path='/AgendarServico:id' render = {(props) => <AgendarServico {...props} />}/>
 				<Route exact path='/Pet' component = {Pet}/>
 				<Route exact path='/Usuario:id'  render = {(props) => <Usuario {...props} />} />
 				<Route path='/Produto:id' render = {(props) => <Produto {...props} repos= "produto"/>} />

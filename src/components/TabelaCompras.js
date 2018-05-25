@@ -19,7 +19,7 @@ class TabelaCompras extends Component{
 			<p className="col col-12 h4 my-3">Compras Realizadas:</p>
 			<div className="row w-100 mx-auto border">
 
-			<table className="table table-hover table-bordered table-striped m-4">
+			<table className="table table-responsive-sm table-hover table-bordered table-striped m-4">
 				<thead className="thead-dark">
 				<tr>
 					<th>Produtos</th>

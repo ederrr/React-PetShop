@@ -23,3 +23,11 @@ export const criaProduto = (p) => http.post("produto", {
   imagem: `${p.imagem}`,
   categoria: `${p.categoria}`
 });
+
+//Usuario
+
+export const login = (local,email,senha) => http.get(`${local}`,{params: {
+      email: `${email}`,
+      senha: `${senha}`
+    }
+  })

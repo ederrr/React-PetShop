@@ -157,10 +157,10 @@
 		{
 			"id": 1,
 			"nome": "Eder Ribeiro",
-			"senha": 1234,
+			"email": "ederrosate@yahoo.com.br",
+			"senha": "1234",
 			"descricao": "...",
 			"imagem": "user.jpg",
-			"categoria": "gatos"
 		}
 	],
 	"servico":[

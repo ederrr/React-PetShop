@@ -32,7 +32,7 @@ class ListDestaques extends Component{
 				<p className="h4" >Produtos para {this.state.especie}:</p>
 				
 				<div className="row">
-					{this.state.produtos.map( (produto,i) => { if (i<4) { return( 
+					{this.state.produtos.map( (produto,i) => {if (i<4) { return( 
 						<Link key={produto.id} className="col col-lg-3 col-sm-6 my-1" to= {`/Produto${produto.id}`} >
 							<div className=" shadow rounded text-center produto" >
 								<img className= "img-fluid p-3" src={require(`../assets/fotos/${produto.imagem}`)} alt="foto do produto" />
