@@ -2,6 +2,6 @@ import axios from 'axios'
 
 export const http = axios.create({
 
-	//baseURL: 'https://my-json-server.typicode.com/ederrr/ReactPetShop/'
-	baseURL: 'http://localhost:3001'
+	baseURL: 'https://my-json-server.typicode.com/ederrr/ReactPetShop/'
+	//baseURL: 'http://localhost:3001'
 })
