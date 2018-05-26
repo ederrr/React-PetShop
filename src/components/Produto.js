@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import {buscaID} from '../service/acesso.api'
 import {Miniatura } from './Miniatura.js'
 import CalculoFrete from './CalculoFrete.js'
+import TabelaDescricao from './TabelaDescricao.js'
 import {Link} from 'react-router-dom';
 
 
@@ -20,7 +21,7 @@ class Produto extends Component{
 			descricao: "",
 			imagem: "bird.jpg",
 			categoria: "",
-			informacoes: [{nome: "Marca", descricao: "Mad Max"},{nome: "Marca", descricao: "Mad Max"},{nome: "Marca", descricao: "Mad Max"}]
+			informacoes: [{nome: "Marca", descricao: "Mad Max"},{nome: "Peso", descricao: "Mad Max"},{nome: "Descricao", descricao: "Mad Max"}]
 
 		}
 
@@ -78,16 +79,7 @@ class Produto extends Component{
 				<div className="row rounded border p-3">
 				<p className="h5">Informações:</p>
 
-					<table className="table table-hover table-bordered table-striped m-4">
-						<tbody>
-						{this.state.informacoes.map( (info) => 
-						<tr>
-							<td>{info.nome}</td>
-							<td>{info.descricao}</td>
-						</tr>
-						)}
-						</tbody>
-					</table>
+					<TabelaDescricao />
 		
 				</div>
 

@@ -4,9 +4,11 @@ import ItemCarrinho from './ItemCarrinho';
 import {Link} from 'react-router-dom';
 
 
+let carrinhoId = [];
+
 class Especie extends Component{
 
-		constructor(props){
+	constructor(props){
 
 		super(props)
 
@@ -19,9 +21,9 @@ class Especie extends Component{
 
 	componentDidMount(props){
 
-		this.state.id = [...this.state.id, this.props.match.params.id];
+		carrinhoId = [ ...carrinhoId , this.props.match.params.id];
 		//{console.log(this.state.id)}
-		this.state.id.map((id) => buscaID("produto", id).then(res => this.setState({produtos: this.state.produtos.concat(res.data)})));
+		carrinhoId.map((id) => buscaID("produto", id).then(res => this.setState({produtos: this.state.produtos.concat(res.data)})));
 
 	}
 
@@ -34,7 +36,7 @@ class Especie extends Component{
 					{this.state.produtos.map( (produto) => (
 						<ItemCarrinho key={produto.id} produto={produto} />
 					))}
-					<Link to={"/"} className="btn btn-success text-center w-25 mx-auto my-lg-3" > Fechar Carrinho </Link>
+					<Link to={""} className="btn btn-success text-center w-25 mx-auto my-lg-3" > Fechar Carrinho </Link>
 				</div>
 		);
 	}
