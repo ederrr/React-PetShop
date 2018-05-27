@@ -259,7 +259,7 @@
 			"dimensao": "3x3x5",
 			"quantidade": 10,
 			"descricao": "Uma descrição bem bacana."
-		}
+		},
 		{
 			"id": 21,
 			"nome": "Produto 1",
@@ -519,7 +519,7 @@
 			"dimensao": "8x2x5",
 			"quantidade": 10,
 			"descricao": "Uma descrição bacana para cachorro."
-		}
+		},
 		{
 			"id": 41,
 			"nome": "Produto 1",
@@ -779,7 +779,7 @@
 			"dimensao": "85x92x50",
 			"quantidade": 5,
 			"descricao": "Uma descrição bacana."
-		}
+		},
 		{
 			"id": 61,
 			"nome": "Produto 1",
@@ -1039,7 +1039,7 @@
 			"dimensao": "8x9x5",
 			"quantidade": 30,
 			"descricao": "Uma descrição qualquer."
-		}
+		},
 		{
 			"id": 81,
 			"nome": "Produto 1",
@@ -1299,7 +1299,7 @@
 			"dimensao": "4x2x3",
 			"quantidade": 15,
 			"descricao": "Uma descrição qualquer."
-		}
+		},
 		{
 			"id": 101,
 			"nome": "Produto 1",
@@ -1559,7 +1559,7 @@
 			"dimensao": "2x2x2",
 			"quantidade": 18,
 			"descricao": "Uma descrição qualquer pisciana."
-		}
+		},
 		{
 			"id": 121,
 			"nome": "Produto 1",
@@ -1931,8 +1931,7 @@
 			"cidade": "Saint Charles do Pinhal",
 			"estado": "São Paulo",
 			"referencia": "Virando logo alí."
-		},
-
+		}
 	],
 	"servico":[
 		{

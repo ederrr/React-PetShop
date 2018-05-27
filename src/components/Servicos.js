@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {buscaCategoria} from '../service/acesso.api'
+import {buscaServico} from '../service/acesso.api'
 import {Link} from 'react-router-dom';
 
 
@@ -18,7 +18,7 @@ class Servicos extends Component{
 
 	componentDidMount(props){
 		//this.setState((prevState, props) => ({especie: props.especie}));
-		buscaCategoria("servico", "").then(res => {  this.setState({servicos: res.data})})
+		buscaServico("servico").then(res => {  this.setState({servicos: res.data})})
 
 	}
 

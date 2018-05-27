@@ -19,7 +19,7 @@ class Produto extends Component{
 			nome: "",
 			preco: 0,
 			descricao: "",
-			imagem: "bird.jpg",
+			imagem: ["bird.jpg","bird.jpg","bird.jpg","bird.jpg"],
 			categoria: "",
 			informacoes: [{nome: "Marca", descricao: "Mad Max"},{nome: "Peso", descricao: "Mad Max"},{nome: "Descricao", descricao: "Mad Max"}]
 
@@ -32,7 +32,7 @@ class Produto extends Component{
 
 	componentDidMount(props){
 
-		buscaID(this.props.repos, this.state.id).then(res => this.setState({nome: res.data[0].nome, preco: res.data[0].preco, descricao: res.data[0].descricao,imagem: res.data[0].imagem,categoria: res.data[0].categoria}))
+		buscaID(this.props.repos, this.state.id).then(res => this.setState({nome: res.data[0].nome, preco: res.data[0].preco, descricao: res.data[0].descricao,/*imagem: res.data[0].imagem*/categoria: res.data[0].categoria}))
 	}
 
 	handleClick(props, e){
@@ -49,12 +49,12 @@ class Produto extends Component{
 
 					<div className ="col col-lg-6 col-12 ">
 
-							<img className= "img-fluid rounded w-100 " src={require(`../assets/fotos/${this.state.imagem}`)} alt="foto do produto" />
+							<img className= "img-fluid rounded w-100 " src={require(`../assets/fotos/${this.state.imagem[0]}`)} alt="foto do produto" />
 							<div className="row">
-								<Miniatura imagem={"cat.jpg"} onClick={this.handleClick}/>
-								<Miniatura imagem={"dog.jpg"} onClick={this.handleClick}/>
-								<Miniatura imagem={"horse.jpg"} onClick={this.handleClick}/>
-								<Miniatura imagem={"bird.jpg"} onClick={this.handleClick}/>
+								<Miniatura imagem={this.state.imagem[0]} onClick={this.handleClick}/>
+								<Miniatura imagem={this.state.imagem[1]} onClick={this.handleClick}/>
+								<Miniatura imagem={this.state.imagem[2]} onClick={this.handleClick}/>
+								<Miniatura imagem={this.state.imagem[3]} onClick={this.handleClick}/>
 							</div>
 					</div>
 

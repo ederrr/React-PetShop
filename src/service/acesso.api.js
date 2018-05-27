@@ -31,3 +31,7 @@ export const login = (local,email,senha) => http.get(`${local}`,{params: {
       senha: `${senha}`
     }
   })
+
+//Servicos
+
+export const buscaServico = (local,categoria) => http.get(`${local}`)

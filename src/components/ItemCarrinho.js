@@ -22,7 +22,7 @@ class ItemCarrinho extends Component{
 						<span className="col col-3 w-100 text-center ">
 							
 							<Link to= {`/Produto${this.props.produto.id}`}>
-							<img className="img-fluid w-50 my-2" src={require(`../assets/fotos/${this.props.produto.imagem}`)} alt="foto do produto" />
+							<img className="img-fluid w-50 my-2" src={require(`../assets/fotos/${this.props.produto.imagem[0]}`)} alt="foto do produto" />
 							</Link>
 							<div className="descricao">
 

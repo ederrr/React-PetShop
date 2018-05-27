@@ -28,7 +28,7 @@ class Conteudo extends Component{
 				<Route path='/Passaros' render = {(props) => <Especie {...props} especie="passaros" repos= "produto"/>} />
 				<Route path='/Roedores' render = {(props) => <Especie {...props} especie="roedores" repos= "produto"/>}  /> 
 				<Route path='/Peixes' render = {(props) => <Especie {...props} especie="peixes" repos= "produto"/>} />
-				<Route path='/Exoticos' render = {(props) => <Especie {...props} especie="exóticos" repos= "produto"/>} />
+				<Route path='/Exoticos' render = {(props) => <Especie {...props} especie="exoticos" repos= "produto"/>} />
 				<Route path='/Servicos' component = {Servicos}/>
 				<Route exact path='/Carrinho' component = {Carrinho}/>
 				<Route path='/Carrinho:id' render = {(props) => <Carrinho {...props}/>} />
