@@ -9,6 +9,7 @@ class ListProduto extends Component{
 			<div>
 
 				<p className="h4" >Produtos para {this.props.especie}:</p>
+
 				
 				<div className="row">
 					{this.props.produtos.map( (produto) => (

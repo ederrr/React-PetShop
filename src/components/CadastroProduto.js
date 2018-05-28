@@ -17,24 +17,23 @@ class CadastroProduto extends Component{
 			preco: '',
 			categoria: '',
 			peso: "",
-			upeso:"",
+			upeso:"kg",
 			marca: '',
 			embalagem: '',
-			upeso:'',
 			quantidade: '',
 			descricao: '',
 			altura: "",
 			largura: "",
 			comprimento:"",
-			ualtura: "",
-			ulargura: "",
-			ucomprimento:""
+			ualtura: "m",
+			ulargura: "m",
+			ucomprimento:"m"
 		}
 		this.handleChange = this.handleChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleClick = this.handleClick.bind(this);
 	}
 
-	handleSubmit(e){
+	handleClick(e){
 		e.preventDefault();
 		criaProduto(this.state)
 
@@ -47,13 +46,13 @@ class CadastroProduto extends Component{
 		else if(event.target.name === "preco")
 			this.setState({preco: event.target.value});
 		else if(event.target.name === "imagem0")
-			this.setState({imagem0: event.target.value});
+			this.setState({imagem0: event.target.value.replace("C:\\fakepath\\","")});
 		else if(event.target.name === "imagem1")
-			this.setState({imagem1: event.target.value});
+			this.setState({imagem1: event.target.value.replace("C:\\fakepath\\","")});
 		else if(event.target.name === "imagem2")
-			this.setState({imagem2: event.target.value});
+			this.setState({imagem2: event.target.value.replace("C:\\fakepath\\","")});
 		else if(event.target.name === "imagem3")
-			this.setState({imagem3: event.target.value});
+			this.setState({imagem3: event.target.value.replace("C:\\fakepath\\","")});
 		else if(event.target.name === "categoria")
 			this.setState({categoria: event.target.value});
 		else if(event.target.name === "marca")
@@ -83,7 +82,6 @@ class CadastroProduto extends Component{
 		
 	}
 	render(){
-		{console.log(this.state)}
 		return(
 		<div className="my-4 mx-auto w-100">
 		<p className="h4">Cadastro de Produto:</p>
@@ -104,7 +102,15 @@ class CadastroProduto extends Component{
 				<input type="file" className=" input w-100" name="imagem2" value={this.state.imagem} onChange={this.handleChange}  accept="image/*"/>
 				<input type="file" className=" input w-100" name="imagem3" value={this.state.imagem} onChange={this.handleChange}  accept="image/*"/>
 			<label className="col h6 ">Categoria:</label>
-				<input type="text" className=" input w-100" name="categoria" value={this.state.categoria}  onChange={this.handleChange} />
+				<select className="col col-lg-2" name="categoria" onChange={this.handleChange}>
+				  <option value="cachorros">cachorros</option>
+				  <option value="gatos">gatos</option>
+				  <option value="peixes">peixes</option>
+				  <option value="passaros">passaros</option>
+				  <option value="cavalos">cavalos</option>
+				  <option value="roedores">roedores</option>
+				  <option value="exoticos">exoticos</option>
+				</select>
 			
 			<label className="col h6 ">Marca:</label>
 				<input type="text" className=" input w-100" name="marca" value={this.state.marca} onChange={this.handleChange}  />
@@ -114,8 +120,8 @@ class CadastroProduto extends Component{
 				<select className="col col-lg-1" name="upeso" onChange={this.handleChange}>
 				  <option value="ml">ml</option>
 				  <option value="l">l</option>
-				  <option value="g">m</option>
-				  <option value="kg">m</option>
+				  <option value="g">g</option>
+				  <option selected value="kg">kg</option>
 				</select>			
 			<label className="col  h6 ">Tipo de Embalagem:</label>
 				<input type="text" className=" input w-100" name="embalagem" value={this.state.embalagem} onChange={this.handleChange}  />
@@ -125,21 +131,21 @@ class CadastroProduto extends Component{
 				<select className="col col-lg-1" name="ualtura"  onChange={this.handleChange}>
 				  <option value="mm">mm</option>
 				  <option value="cm">cm</option>
-				  <option value="m">m</option>
+				  <option selected value="m">m</option>
 				</select>
 				<p className="col col-lg-1">x</p>
 				<input type="number" className=" input col col-lg-2 mx-lg-2" name="largura" value={this.state.largura}  onChange={this.handleChange} />
 				<select className="col col-lg-1" name="ulargura" onChange={this.handleChange}>
 				  <option value="mm">mm</option>
 				  <option value="cm">cm</option>
-				  <option value="m">m</option>
+				  <option selected value="m">m</option>
 				</select>
 				<p className="col col-lg-1">x</p>
 				<input type="number" className=" input col col-lg-2 mx-lg-2" name="comprimento" value={this.state.comprimento} onChange={this.handleChange}  />
 				<select className="col col-lg-1" name="ucomprimento" onChange={this.handleChange} >
 				  <option value="mm">mm</option>
 				  <option value="cm">cm</option>
-				  <option value="m">m</option>
+				  <option selected value="m">m</option>
 				</select>
 			
 			<label className="col  h6 ">Quantidade:</label>
@@ -148,7 +154,7 @@ class CadastroProduto extends Component{
 			<label className="col  h6 ">Descrição:</label>
 				<textarea type="text" className=" input w-100" name="descricao" value={this.state.descricao} onChange={this.handleChange} ></textarea>
 				<div className=" w-100 mx-auto text-center my-4">
-					<input className="btn btn-success " type="submit" onClick={this.handleSubmit} value="Cadastrar Produto" id="envio"/>
+					<input className="btn btn-success " type="submit" onClick={this.handleClick} value="Cadastrar Produto" id="envio"/>
 				</div>
 		</fieldset>
 		</form>

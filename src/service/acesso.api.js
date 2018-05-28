@@ -46,6 +46,31 @@ export const login = (local,email,senha) => http.get(`${local}`,{params: {
     }
   })
 
+export const criaUsuario = (u) => http.post("usuario", { 
+
+      id: u.id,
+      admin: u.admin,
+      nome: u.nome,
+      email: u.email,
+      senha: u.senha,
+      sexo: u.sexo,
+      cpf: u.cpf,
+      data: u.nascimento,
+      foto: u.foto,
+      telefone: u.telefone,
+      pets: [],
+      comprasprodutos: [],
+      comprasservicos: [],
+      endereco: u.endereco,
+      numero: u.numero,
+      complemento: u.complemento,
+      bairro: u.bairro,
+      cidade: u.cidade,
+      estado: u.estado,
+      referencia: u.referencia,
+})
+
+
 //Servicos
 
 export const buscaServico = (local,categoria) => http.get(`${local}`)
