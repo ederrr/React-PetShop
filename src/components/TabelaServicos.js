@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {buscaServicoPet} from '../service/acesso.api.js';
+import {buscaID} from '../service/acesso.api.js';
 
 class TabelaServicos extends Component{
 	constructor(props){
@@ -6,10 +8,18 @@ class TabelaServicos extends Component{
 		super(props)
 
 		this.state = {
-			servicos:[{nome: "Produto 1",pet: "Pet X", data: "16/09/2015", valor: 25.00 },{nome: "Produto 2",pet: "Pet X", data: "16/09/2015", valor: 45.00 }],
+			servicos:[],
 			total: 0
 		}
+	}
+	componentDidMount(){
+		if(this.props.tipo==="usuario"){
 
+			buscaID("usuario", this.props.id).then((res) => {buscaID("compraservico", res.data[0].comprasservicos).then((r) => {this.setState({servicos: r.data})})});
+		}
+		else{
+		buscaServicoPet("compraservico", this.props.id).then((res) => this.setState({servicos: res.data}))
+		}
 	}
 
 	render(){
@@ -22,17 +32,17 @@ class TabelaServicos extends Component{
 				<thead className="thead-dark">
 				<tr>
 					<th>Serviços</th>
-					<th>Pet</th>
 					<th>Data</th>
+					<th>Hora</th>
 					<th>Valor</th>
 				</tr>
 				</thead>
 				<tbody>
 				{this.state.servicos.map( (servico) => 
-				<tr>
+				<tr >
 					<td>{servico.nome}</td>
-					<td>{servico.pet}</td>
-					<td>{servico.data}</td>
+					<td>{servico.dataservico}</td>
+					<td>{servico.horaservico}</td>
 					<td>R${servico.valor}</td>
 				</tr>
 				)}

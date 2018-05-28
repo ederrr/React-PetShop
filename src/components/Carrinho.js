@@ -21,10 +21,13 @@ class Especie extends Component{
 
 	componentDidMount(props){
 
+		if(this.props.match.params.id !== undefined){
 		carrinhoId = [ ...carrinhoId , this.props.match.params.id];
 		//{console.log(this.state.id)}
+		}else{
+		carrinhoId = [...carrinhoId]
+		}
 		carrinhoId.map((id) => buscaID("produto", id).then(res => this.setState({produtos: this.state.produtos.concat(res.data)})));
-
 	}
 
 

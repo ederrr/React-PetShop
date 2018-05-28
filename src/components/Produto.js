@@ -21,7 +21,8 @@ class Produto extends Component{
 			descricao: "",
 			imagem: ["bird.jpg","bird.jpg","bird.jpg","bird.jpg"],
 			categoria: "",
-			informacoes: [{nome: "Marca", descricao: "Mad Max"},{nome: "Peso", descricao: "Mad Max"},{nome: "Descricao", descricao: "Mad Max"}]
+			imagemGrande:"bird.jpg",
+			informacoes: []
 
 		}
 
@@ -32,11 +33,11 @@ class Produto extends Component{
 
 	componentDidMount(props){
 
-		buscaID(this.props.repos, this.state.id).then(res => this.setState({nome: res.data[0].nome, preco: res.data[0].preco, descricao: res.data[0].descricao,/*imagem: res.data[0].imagem*/categoria: res.data[0].categoria}))
+		buscaID(this.props.repos, this.state.id).then(res => this.setState({nome: res.data[0].nome, preco: res.data[0].preco,imagem: res.data[0].imagem,categoria: res.data[0].categoria,imagemGrande: res.data[0].imagem[0],informacoes: res.data[0].informacoes, descricao: res.data[0].informacoes[5].descricao}))
 	}
 
 	handleClick(props, e){
-		this.setState({imagem: props.imagem})
+		this.setState({imagemGrande: props.imagem})
 
 	}
 
@@ -49,7 +50,7 @@ class Produto extends Component{
 
 					<div className ="col col-lg-6 col-12 ">
 
-							<img className= "img-fluid rounded w-100 " src={require(`../assets/fotos/${this.state.imagem[0]}`)} alt="foto do produto" />
+							<img className= "img-fluid rounded w-100 " src={require(`../assets/fotos/${this.state.imagemGrande}`)} alt="foto do produto" />
 							<div className="row">
 								<Miniatura imagem={this.state.imagem[0]} onClick={this.handleClick}/>
 								<Miniatura imagem={this.state.imagem[1]} onClick={this.handleClick}/>
@@ -78,8 +79,9 @@ class Produto extends Component{
 
 				<div className="row rounded border p-3">
 				<p className="h5">Informações:</p>
+				{console.log(this.state)}
 
-					<TabelaDescricao />
+					<TabelaDescricao descricao={this.state.informacoes}/>
 		
 				</div>
 

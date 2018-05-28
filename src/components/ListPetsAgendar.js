@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import {buscaID} from '../service/acesso.api.js';
 
 class ListPets extends Component{
 
@@ -8,10 +9,13 @@ class ListPets extends Component{
 		super(props)
 
 		this.state = {
-			pets:[{nome: "Pet1"},{nome: "Pet2"},{nome: "Pet1"},{nome: "Pet2"}]
+			pets:[]
 		}
 
-	} 
+	}
+	componentDidMount(){
+		buscaID("usuario", this.props.id).then((res) => {buscaID("pet", res.data[0].pets).then((r) => {this.setState({pets: r.data})})});
+	}
 
 	render(){
 		return(
@@ -19,11 +23,11 @@ class ListPets extends Component{
 				<p className="col col-12 h6 my-3">Escolha seu pet:</p>
 				{this.state.pets.map( (pet) => 
 					<div className=" col col-lg-3 col-6 pets shadow rounded text-center p-2 m-auto">
-						<Link to={"/Pet"}>
-						<img className="img-fluid " src={require(`../assets/fotos/dog.jpg`)} alt="foto do pet" />
+						<Link to={`/Pet${pet.id}`}>
+						<img className="img-fluid " src={require(`../assets/fotos/${pet.foto}`)} alt="foto do pet" />
 						</Link>
 						<div className="container">
-							<p className="product mt-3 mb-2">Pet 1</p>
+							<p className="product mt-3 mb-2">{pet.nome}</p>
 						</div>
 					</div>
 				)}

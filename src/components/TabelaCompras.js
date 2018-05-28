@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {buscaID} from '../service/acesso.api.js';
 
 class TabelaCompras extends Component{
 
@@ -7,10 +8,13 @@ class TabelaCompras extends Component{
 		super(props)
 
 		this.state = {
-			compras:[{nome: "Produto 1", data: "16/09/2015", valor: 25.00 },{nome: "Produto 2", data: "16/09/2015", valor: 45.00 }],
+			compras:[],
 			total: 0
 		}
+	}
 
+	componentDidMount(){
+		buscaID("usuario", this.props.id).then((res) => {buscaID("compraproduto", res.data[0].comprasservicos).then((r) => {this.setState({compras: r.data})})});
 	}
 
 	render(){

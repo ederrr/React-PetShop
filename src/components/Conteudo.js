@@ -39,8 +39,8 @@ class Conteudo extends Component{
 				<Route exact path='/CadastroServico' component = {CadastroServico}/>
 				<Route exact path='/CadastroUsuario' component = {CadastroUsuario}/>
 				<Route path='/AgendarServico:id' render = {(props) => <AgendarServico {...props} />}/>
-				<Route exact path='/Pet' component = {Pet}/>
-				<Route exact path='/Usuario:id'  render = {(props) => <Usuario {...props} />} />
+				<Route exact path='/Pet:id'  render = {(props) => <Pet {...props} />} />
+				<Route exact path='/Usuario:id' render = {(props) => <Usuario {...props} />} />
 				<Route path='/Produto:id' render = {(props) => <Produto {...props} repos= "produto"/>} />
 				<Route path='/Buscados:nome' render = {(props) => <Buscados {...props} repos= "produto"/>} />
 
