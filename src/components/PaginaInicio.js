@@ -12,7 +12,6 @@ class PaginaInicio extends Component{
 				<div>
 					
 					<SlideShow />
-
 					<ListDestaques repos="produto" especie="cachorros"/>
 					<ListDestaques repos="produto" especie="gatos"/>
 					<ListDestaques repos="produto" especie="cavalos"/>

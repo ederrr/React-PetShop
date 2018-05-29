@@ -39,7 +39,7 @@ class Login extends Component{
 				this.setState({mensagem: "Email ou Senha Inválidos"})
 			}
 			else{
-				res.data.map( (u)=>{this.setState({ logado: true})} )
+				res.data.map( (u)=>{return this.setState({ logado: true})} )
 
 			} 
 		})

@@ -22,7 +22,7 @@ class ListPets extends Component{
 			<div className="row w-100 mx-auto">
 				<p className="col col-12 h4 my-3">Meus pets:</p>
 				{this.state.pets.map( (pet) => 
-					<div className=" col col-lg-2 col-sm-5 pets shadow rounded text-center p-3 mx-1">
+					<div key={pet.id} className=" col col-lg-2 col-sm-5 pets shadow rounded text-center p-3 mx-1">
 						<Link to={`/Pet${pet.id}`}>
 						<img className="img-fluid " src={require(`../assets/fotos/${pet.foto}`)} alt="foto do pet" />
 						</Link>

@@ -15,7 +15,7 @@ class CadastroProduto extends Component{
 			imagem2:'',
 			imagem3:'',
 			preco: '',
-			categoria: '',
+			categoria: 'cachorros',
 			peso: "",
 			upeso:"kg",
 			marca: '',
@@ -25,9 +25,9 @@ class CadastroProduto extends Component{
 			altura: "",
 			largura: "",
 			comprimento:"",
-			ualtura: "m",
-			ulargura: "m",
-			ucomprimento:"m"
+			ualtura: "cm",
+			ulargura: "cm",
+			ucomprimento:"cm"
 		}
 		this.handleChange = this.handleChange.bind(this);
 		this.handleClick = this.handleClick.bind(this);
@@ -102,7 +102,7 @@ class CadastroProduto extends Component{
 				<input type="file" className=" input w-100" name="imagem2" value={this.state.imagem} onChange={this.handleChange}  accept="image/*"/>
 				<input type="file" className=" input w-100" name="imagem3" value={this.state.imagem} onChange={this.handleChange}  accept="image/*"/>
 			<label className="col h6 ">Categoria:</label>
-				<select className="col col-lg-2" name="categoria" onChange={this.handleChange}>
+				<select className="col col-lg-2" name="categoria" value={this.state.categoria} onChange={this.handleChange}>
 				  <option value="cachorros">cachorros</option>
 				  <option value="gatos">gatos</option>
 				  <option value="peixes">peixes</option>
@@ -117,35 +117,35 @@ class CadastroProduto extends Component{
 			
 			<label className="col h6 ">Peso Líquido:</label>
 				<input type="text" className=" input col col-lg-2 mx-lg-2" name="peso" value={this.state.peso}  onChange={this.handleChange} />
-				<select className="col col-lg-1" name="upeso" onChange={this.handleChange}>
+				<select className="col col-lg-1" name="upeso" value={this.state.upeso} onChange={this.handleChange}>
 				  <option value="ml">ml</option>
 				  <option value="l">l</option>
 				  <option value="g">g</option>
-				  <option selected value="kg">kg</option>
+				  <option value="kg">kg</option>
 				</select>			
 			<label className="col  h6 ">Tipo de Embalagem:</label>
 				<input type="text" className=" input w-100" name="embalagem" value={this.state.embalagem} onChange={this.handleChange}  />
 			
 			<label className="col  h6 ">Dimensões (Altura x Largura x Comprimento):</label>
 				<input type="number" className=" input col col-lg-2 mx-lg-2" name="altura" value={this.state.altura} onChange={this.handleChange}  />
-				<select className="col col-lg-1" name="ualtura"  onChange={this.handleChange}>
+				<select className="col col-lg-1" name="ualtura" value={this.state.ualtura}  onChange={this.handleChange}>
 				  <option value="mm">mm</option>
 				  <option value="cm">cm</option>
-				  <option selected value="m">m</option>
+				  <option value="m">m</option>
 				</select>
 				<p className="col col-lg-1">x</p>
 				<input type="number" className=" input col col-lg-2 mx-lg-2" name="largura" value={this.state.largura}  onChange={this.handleChange} />
-				<select className="col col-lg-1" name="ulargura" onChange={this.handleChange}>
+				<select className="col col-lg-1" name="ulargura" value={this.state.ulargura} onChange={this.handleChange}>
 				  <option value="mm">mm</option>
 				  <option value="cm">cm</option>
-				  <option selected value="m">m</option>
+				  <option value="m">m</option>
 				</select>
 				<p className="col col-lg-1">x</p>
 				<input type="number" className=" input col col-lg-2 mx-lg-2" name="comprimento" value={this.state.comprimento} onChange={this.handleChange}  />
-				<select className="col col-lg-1" name="ucomprimento" onChange={this.handleChange} >
+				<select className="col col-lg-1" name="ucomprimento" value={this.state.ucomprimento} onChange={this.handleChange} >
 				  <option value="mm">mm</option>
 				  <option value="cm">cm</option>
-				  <option selected value="m">m</option>
+				  <option value="m">m</option>
 				</select>
 			
 			<label className="col  h6 ">Quantidade:</label>

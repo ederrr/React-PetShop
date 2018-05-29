@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 import {buscaID} from '../service/acesso.api.js';
 
 class ListPets extends Component{
@@ -22,11 +21,12 @@ class ListPets extends Component{
 			<div className="row w-100 mx-auto px-auto">
 				<p className="col col-12 h6 my-3">Escolha seu pet:</p>
 				{this.state.pets.map( (pet) => 
-					<div className=" col col-lg-3 col-6 pets shadow rounded text-center p-2 m-auto">
-						<Link to={`/Pet${pet.id}`}>
+					<div key={pet.id} className=" col col-lg-3 col-6 shadow rounded text-center p-2 m-auto">
+						<div >
 						<img className="img-fluid " src={require(`../assets/fotos/${pet.foto}`)} alt="foto do pet" />
-						</Link>
-						<div className="container">
+						</div>
+						<div className="text-center">
+							<input type="radio" name="pet" value={pet.id} />
 							<p className="product mt-3 mb-2">{pet.nome}</p>
 						</div>
 					</div>

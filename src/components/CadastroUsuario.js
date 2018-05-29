@@ -88,8 +88,8 @@ class CadastroUsuario extends Component{
 			<label className="col h6 ">Confirmar Senha:</label>
 				<input type="password" className=" input w-100" name="confirmarSenha" value={this.state.confirmarSenha} onChange={this.handleChange} />
 			<label className="col h6 ">Sexo:</label>
-				<select className="col col-lg-5" name="sexo" onChange={this.handleChange} >
-					<option selected value="M">Masculino</option>
+				<select className="col col-lg-5" name="sexo" value={this.state.sexo} onChange={this.handleChange} >
+					<option value="M">Masculino</option>
 					<option value="F">Feminino</option>
 					<option value="O">Outro</option>
 				</select>

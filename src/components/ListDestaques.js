@@ -15,7 +15,6 @@ class ListDestaques extends Component{
 
 	} 
 
-
 	componentDidMount(props){
 		this.setState((prevState, props) => ({especie: props.especie}));
 		buscaCategoria(this.props.repos, this.props.especie).then(res => {  this.setState({produtos: res.data})})
@@ -41,7 +40,7 @@ class ListDestaques extends Component{
 									<p className=" text-center text text-secondary price" >{produto.preco}</p>
 								</div>
 							</div>
-						</Link>)}})}
+						</Link>)}else{return(<div></div>)} })}
 				</div>
 				
 			</div>

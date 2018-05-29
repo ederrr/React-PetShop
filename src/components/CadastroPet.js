@@ -1,7 +1,63 @@
 import React, {Component} from 'react';
+import {criaPet} from '../service/acesso.api.js';
 
 
 class CadastroProduto extends Component{
+
+	constructor(props){
+
+		super(props)
+		this.state = {
+		id: Math.random(),
+		nome: '',
+		foto: '',
+		sexo: 'M',
+		peso: '',
+		tipo: 'Cachorro',
+		raca: '',
+		pelagem: '',
+		rga: '',
+		porte: 'medio',
+		nascimento: '',
+		observacao: ''
+
+		}
+		this.handleChange = this.handleChange.bind(this);
+		this.handleClick = this.handleClick.bind(this);
+	}
+
+	handleChange(event) {
+		if(event.target.name === "nome")
+			this.setState({nome: event.target.value});
+		else if(event.target.name === "foto")
+			this.setState({foto: event.target.value.replace("C:\\fakepath\\","")});
+		else if(event.target.name === "preco")
+			this.setState({preco: event.target.value});
+		else if(event.target.name === "especie")
+			this.setState({tipo: event.target.value});
+		else if(event.target.name === "raca")
+			this.setState({raca: event.target.value});
+		else if(event.target.name === "cor")
+			this.setState({pelagem: event.target.value});
+		else if(event.target.name === "peso")
+			this.setState({peso: event.target.value});
+		else if(event.target.name === "rga")
+			this.setState({rga: event.target.value});
+		else if(event.target.name === "porte")
+			this.setState({porte: event.target.value});
+		else if(event.target.name === "nascimento")
+			this.setState({nascimento: event.target.value});
+		else if(event.target.name === "observacao")
+			this.setState({observacao: event.target.value});
+		else if(event.target.name === "sexo")
+			this.setState({sexo: event.target.value});
+		
+	}
+	handleClick(e){
+		e.preventDefault();
+		criaPet(this.state);
+	}
+
 	render(){
 		return(
 		<div className="my-4 mx-auto w-100">
@@ -12,60 +68,51 @@ class CadastroProduto extends Component{
 				<p className="h5">Dados do Pet</p>
 			</div>
 			<label className="col h6 ">Nome:</label>
-				<input type="text" className=" input w-100" name="nome" value=""/>
+				<input type="text" className=" input w-100" name="nome" value={this.state.nome} onChange={this.handleChange}/>
 
 			<label className="col h6 ">Foto:</label>
-				<input type="file" className=" input w-100" name="foto" accept="image/*"/>
+				<input type="file" className=" input w-100" name="foto" onChange={this.handleChange} accept="image/*"/>
 			
 			<label className="col h6 ">Sexo:</label>
-				<select className="col col-lg-3" name="sexo">
-					<option disabled selected value></option>
-					<option value="f">Fêmea</option>
-					<option value="m">Macho</option>
+				<select className="col col-lg-3" name="sexo" value={this.state.sexo} onChange={this.handleChange}>
+					<option value="F">Fêmea</option>
+					<option value="M">Macho</option>
 				</select>
 			
 			<label className="col h6 ">Tipo do Animal:</label>
-				<select className="col col-lg-3" name="especie">
-					<option disabled selected value></option>
-					<option value="cachorro">Cachorro</option>
-					<option value="cavalo">Cavalo</option>
-					<option value="gato">Gato</option>
-					<option value="passaro">Pássaro</option>
-					<option value="peixe">Peixe</option>
-					<option value="roedor">Roedor</option>
-					<option value="exotico">Outro...</option>
-				</select>
-			
-			<label className="col h6 ">Peso Líquido:</label>
-				<input type="text" className=" input col col-lg-2 mx-lg-2" name="peso" value=""/>
-				<select className="col col-lg-1" name="altura">
-				  <option value="ml">ml</option>
-				  <option value="l">l</option>
-				  <option value="g">m</option>
-				  <option value="kg">m</option>
-				</select>			
+				<select className="col col-lg-3" name="especie" value={this.state.tipo} onChange={this.handleChange} >
+					<option value="cachorros">Cachorro</option>
+					<option value="cavalos">Cavalo</option>
+					<option value="gatos">Gato</option>
+					<option value="passaros">Pássaro</option>
+					<option value="peixes">Peixe</option>
+					<option value="roedores">Roedor</option>
+					<option value="exoticos">Outro...</option>
+				</select>	
 
 			<label className="col h6 ">Raça:</label>
-				<input type="text" className=" input w-100" name="raca" value=""/>
+				<input type="text" className=" input w-100" name="raca" value={this.state.raca} onChange={this.handleChange}/>
 			
 			<label className="col h6 ">Pelagem/Cor:</label>
-				<input type="text" className=" input w-100" name="cor" value=""/>
+				<input type="text" className=" input w-100" name="cor" value={this.state.pelagem} onChange={this.handleChange}/>
 			<label className="col h6 ">RGA:</label>
-				<input type="number" className=" input w-100" name="rga" value=""/>
+				<input type="number" className=" input w-100" name="rga" value={this.state.rga} onChange={this.handleChange}/>
 			
 			<label className="col h6 ">Porte:</label>
-				<select className="col col-lg-3" name="porte">
-					<option disabled selected value></option>
+				<select className="col col-lg-3" name="porte" value={this.state.porte} onChange={this.handleChange} >
 					<option value="pequeno">Pequeno</option>
 					<option value="medio">Médio</option>
 					<option value="grande">Grande</option>
 				</select>
 			<label className="col h6 ">Data de Nascimento:</label>
-				<input type="date" className=" input w-100 col col-lg-3" name="cor" value=""/>
+				<input type="date" className=" input w-100 col col-lg-3" name="nascimento" value={this.state.nascimento} onChange={this.handleChange}/>
 			<label className="col h6 ">Peso(Kg):</label>
-				<input type="number" className=" input w-100" name="rga" value=""/>
-			<div className=" w-100 mx-auto text-center my-4">
-					<input className="btn btn-success " type="submit" value="Cadastrar Pet" id="envio"/>
+				<input type="number" className=" input w-100" name="peso" value={this.state.peso} onChange={this.handleChange}/>
+
+			<label className="col  h6 ">Descrição:</label>
+				<textarea type="text" className=" input w-100" name="observacao" value={this.state.observacao} onChange={this.handleChange}></textarea>
+				<div className=" w-100 mx-auto text-center my-4">
+					<input className="btn btn-success " type="submit" onClick={this.handleClick} value="Cadastrar Serviço" id="envio"/>
 				</div>
 		</fieldset>
 		</form>

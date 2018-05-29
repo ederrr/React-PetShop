@@ -1,7 +1,39 @@
 import React, {Component} from 'react';
-
+import {criaServico} from '../service/acesso.api.js';
 
 class CadastroServico extends Component{
+
+	constructor(props){
+
+		super(props)
+		this.state = {
+			id: Math.random(),
+			nome: '',
+			foto: '',
+			preco: '',
+			descricao: ''
+
+		}
+		this.handleChange = this.handleChange.bind(this);
+		this.handleClick = this.handleClick.bind(this);
+	}
+
+	handleChange(event) {
+		if(event.target.name === "nome")
+			this.setState({nome: event.target.value});
+		else if(event.target.name === "foto")
+			this.setState({foto: event.target.value.replace("C:\\fakepath\\","")});
+		else if(event.target.name === "preco")
+			this.setState({preco: event.target.value});
+		else if(event.target.name === "descricao")
+			this.setState({descricao: event.target.value});
+		
+	}
+	handleClick(e){
+		e.preventDefault();
+		criaServico(this.state);
+	}
+
 	render(){
 		return(
 		<div className="my-4 mx-auto w-100">
@@ -11,28 +43,18 @@ class CadastroServico extends Component{
 				<p className="h5">Dados do Serviço</p>
 			</div>
 			<label className="col h6 ">Nome:</label>
-				<input type="text" className=" input w-100" name="nome" value=""/>
+				<input type="text" className=" input w-100" name="nome" value={this.state.nome} onChange={this.handleChange}/>
 
 			<label className="col h6 ">Foto:</label>
-				<input type="file" className=" input w-100" name="foto" accept="image/*"/>
-			
-			
-			<label className="col h6 ">Animais Possíveis:</label>
+				<input type="file" className=" input w-100" name="foto" accept="image/*"  onChange={this.handleChange}/>
 
-					<input className="col col-1" type="radio" id="cachorro" value="cachorro"/><label>Cachorro</label>
-					<input className="col col-1" type="radio" id="cavalo" value="cavalo"/><label>Cavalo</label>
-					<input className="col col-1" type="radio" id="gato" value="gato"/><label>Gato</label>
-					<input className="col col-1" type="radio" id="passaro" value="passaro"/><label>Pássaro</label>
-					<input className="col col-1" type="radio" id="peixe" value="peixe"/><label>Peixe</label>
-					<input className="col col-1" type="radio" id="roedor" value="roedor"/><label>Roedor</label>
-					<input className="col col-1" type="radio" id="outros" value="exotico"/><label>Outro...</label>
-			<label className="col h6 ">Preço:</label>
-				<input type="number" className=" input w-100" name="preco" value=""/>
+			<label className="col h6 ">Preço Base:</label>
+				<input type="number" className=" input w-100" name="preco" value={this.state.preco} onChange={this.handleChange}/>
 
 			<label className="col  h6 ">Descrição:</label>
-				<textarea type="text" className=" input w-100" name="descricao" value=""></textarea>
+				<textarea type="text" className=" input w-100" name="descricao" value={this.state.descricao} onChange={this.handleChange}></textarea>
 				<div className=" w-100 mx-auto text-center my-4">
-					<input className="btn btn-success " type="submit" value="Cadastrar Serviço" id="envio"/>
+					<input className="btn btn-success " type="submit" onClick={this.handleClick} value="Cadastrar Serviço" id="envio"/>
 				</div>
 		</form>
 		</div>
