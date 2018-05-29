@@ -63,7 +63,7 @@ class CadastroUsuario extends Component{
 			this.setState({estado: event.target.value});
 		else if(event.target.name === "referencia")
 			this.setState({referencia: event.target.value});
-		
+
 	}
 	handleClick(e){
 		e.preventDefault();
@@ -80,13 +80,13 @@ class CadastroUsuario extends Component{
 				<p className="h5">Dados do Usuário</p>
 			</div>
 			<label className="col h6 ">Nome:</label>
-				<input type="text" className=" input w-100" name="nome" value={this.state.nome} onChange={this.handleChange} />
+				<input type="text" className=" input w-100" name="nome" placeholder="Ex.: Astolfo" value={this.state.nome} onChange={this.handleChange} />
 			<label className="col h6 ">Email:</label>
-				<input type="email" className=" input w-100" name="email" value={this.state.email} onChange={this.handleChange} />
+				<input type="email" className=" input w-100" name="email" placeholder="Ex.: astolfo@email.com" value={this.state.email} onChange={this.handleChange} />
 			<label className="col h6 ">Senha:</label>
-				<input type="password" className=" input w-100" name="senha" value={this.state.senha} onChange={this.handleChange} />
+				<input type="password" className=" input w-100" name="senha" placeholder="Sua senha super segura"  value={this.state.senha} onChange={this.handleChange} />
 			<label className="col h6 ">Confirmar Senha:</label>
-				<input type="password" className=" input w-100" name="confirmarSenha" value={this.state.confirmarSenha} onChange={this.handleChange} />
+				<input type="password" className=" input w-100" name="confirmarSenha" placeholder="Confirme sua senha super segura" value={this.state.confirmarSenha} onChange={this.handleChange} />
 			<label className="col h6 ">Sexo:</label>
 				<select className="col col-lg-5" name="sexo" value={this.state.sexo} onChange={this.handleChange} >
 					<option value="M">Masculino</option>
@@ -94,13 +94,13 @@ class CadastroUsuario extends Component{
 					<option value="O">Outro</option>
 				</select>
 			<label className="col h6 ">CPF:</label>
-				<input type="number" className=" input w-100" name="cpf" value={this.state.cpf} onChange={this.handleChange} />
+				<input type="number" className=" input w-100" name="cpf" placeholder="Ex.: 12345667911" value={this.state.cpf} onChange={this.handleChange} />
 			<label className="col h6 ">Data de Nascimento:</label>
-				<input type="date" className=" input w-100 col col-lg-7" name="data" value={this.state.nascimento} onChange={this.handleChange} />
+				<input type="date" className=" input w-100 col col-lg-7" name="data" placeholder="Ex.: 23/03/1992" value={this.state.nascimento} onChange={this.handleChange} />
 			<label className="col h6 ">Foto:</label>
 				<input type="file" className=" input w-100" name="foto" value={this.state.imagem} onChange={this.handleChange}  accept="image/*"/>
 			<label className="col h6 ">Telefone:</label>
-				<input type="tel" className=" input w-100" name="telefone" value={this.state.telefone} onChange={this.handleChange} />
+				<input type="tel" className=" input w-100" name="telefone" placeholder="Ex.: 34128127" value={this.state.telefone} onChange={this.handleChange} />
 		</div>
 
 		<div className="col col-lg-5 col-sm-12 w-100 bg-light mx-lg-auto py-3 my-2">
@@ -108,22 +108,22 @@ class CadastroUsuario extends Component{
 				<p className="h5">Endereço do Usuário</p>
 			</div>
 			<label className="col h6 ">Endereço:</label>
-				<input type="text" className=" input w-100" name="endereco" value={this.state.endereco} onChange={this.handleChange}/>
+				<input type="text" className=" input w-100" name="endereco" placeholder="Ex.: Rua do Astolfo" value={this.state.endereco} onChange={this.handleChange}/>
 			<label className="col h6 ">Número:</label>
-				<input type="number" className=" input w-100" name="numero" value={this.state.numero} onChange={this.handleChange}/>
+				<input type="number" className=" input w-100" name="numero" placeholder="Ex.: 123" value={this.state.numero} onChange={this.handleChange}/>
 			<label className="col h6 ">CEP:</label>
-				<input type="number" className=" input w-100" name="cep" value={this.state.valueCEP} onChange={this.handleChange}/>
+				<input type="number" className=" input w-100" name="cep" placeholder="Ex.: 13251922" value={this.state.valueCEP} onChange={this.handleChange}/>
 			<label className="col h6 ">Complemento:</label>
-				<input type="text" className=" input w-100" name="complemento" value={this.state.complemento} onChange={this.handleChange}/>
+				<input type="text" className=" input w-100" name="complemento" placeholder="Ex.: Apto 523" value={this.state.complemento} onChange={this.handleChange}/>
 			<label className="col h6 ">Bairro:</label>
-				<input type="text" className=" input w-100" name="bairro" value={this.state.bairro} onChange={this.handleChange}/>
+				<input type="text" className=" input w-100" name="bairro" placeholder="Ex.: Centro" value={this.state.bairro} onChange={this.handleChange}/>
 			<label className="col h6 ">Cidade:</label>
-				<input type="text" className=" input w-100" name="cidade" value={this.state.cidade} onChange={this.handleChange}/>
+				<input type="text" className=" input w-100" name="cidade" placeholder="Ex.: Saint Charles do Pinhal" value={this.state.cidade} onChange={this.handleChange}/>
 			<label className="col h6 ">Estado:</label>
-				<input type="text" className=" input w-100" name="estado" value={this.state.estado} onChange={this.handleChange}/>
+				<input type="text" className=" input w-100" name="estado" placeholder="Ex.: São Paulo" value={this.state.estado} onChange={this.handleChange}/>
 			<label className="col  h6 ">Referência:</label>
-			<textarea type="text" className=" input w-100" name="referencia" value={this.state.referencia} onChange={this.handleChange}></textarea>
-			
+			<textarea type="text" className=" input w-100" name="referencia" placeholder="Ex.: Perto do posto Ipiranga" value={this.state.referencia} onChange={this.handleChange}></textarea>
+
 		</div>
 		<div className=" w-100 mx-auto text-center my-4">
 			<input className="btn btn-success " type="submit" onClick={this.handleClick} value="Cadastrar Usuário" id="envio"/>

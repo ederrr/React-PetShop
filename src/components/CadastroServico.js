@@ -27,7 +27,7 @@ class CadastroServico extends Component{
 			this.setState({preco: event.target.value});
 		else if(event.target.name === "descricao")
 			this.setState({descricao: event.target.value});
-		
+
 	}
 	handleClick(e){
 		e.preventDefault();
@@ -43,16 +43,17 @@ class CadastroServico extends Component{
 				<p className="h5">Dados do Serviço</p>
 			</div>
 			<label className="col h6 ">Nome:</label>
-				<input type="text" className=" input w-100" name="nome" value={this.state.nome} onChange={this.handleChange}/>
+				<input type="text" className=" input w-100" name="nome" placeholder="Ex.: Banho e tosa" value={this.state.nome} onChange={this.handleChange}/>
 
 			<label className="col h6 ">Foto:</label>
 				<input type="file" className=" input w-100" name="foto" accept="image/*"  onChange={this.handleChange}/>
 
 			<label className="col h6 ">Preço Base:</label>
-				<input type="number" className=" input w-100" name="preco" value={this.state.preco} onChange={this.handleChange}/>
+				<input type="number" className=" input w-100" name="preco"
+placeholder="Ex.: 75.50" value={this.state.preco} onChange={this.handleChange}/>
 
 			<label className="col  h6 ">Descrição:</label>
-				<textarea type="text" className=" input w-100" name="descricao" value={this.state.descricao} onChange={this.handleChange}></textarea>
+				<textarea type="text" className=" input w-100" name="descricao" placeholder="Ex.: Banho relaxante com shapoo e condicionador mata pulga e carrapatos. Inclusa escovação de dente e lacinhos/gravatinha." value={this.state.descricao} onChange={this.handleChange}></textarea>
 				<div className=" w-100 mx-auto text-center my-4">
 					<input className="btn btn-success " type="submit" onClick={this.handleClick} value="Cadastrar Serviço" id="envio"/>
 				</div>
