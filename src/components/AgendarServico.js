@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {buscaID} from '../service/acesso.api'
 import {compraServico} from '../service/acesso.api.js';
 import ListPetsAgendar from './ListPetsAgendar'
+import {connect} from 'react-redux';
 
 
 
@@ -47,6 +48,8 @@ class AgendarServico extends Component{
 	}
 
 	render(){
+		if(this.props.logado){
+
 		return(
 			<div>
 				<p className="h4">Serviços:</p>
@@ -63,7 +66,7 @@ class AgendarServico extends Component{
 					</div>
 					<div className="row  rounded border h-100">
 						<div className=" col col-lg-7 col-12 imagem my-auto py-2 px-auto w-100">
-						<ListPetsAgendar />
+						<ListPetsAgendar id={this.props.id} />
 						</div>
 						<div className="col col-lg-5 col-12 imagem h-100 p-2 ">
 						<p className="h6 my-3">Escolha uma data:</p>
@@ -80,8 +83,18 @@ class AgendarServico extends Component{
 			</div>
 
 		);
+		}
+		else{
+			return(<p>Cadastre-se ou realize login para acessar.</p>);
+		}
 	}
 }
 
 
-export default AgendarServico;
+const mapStateToProps = state => ({
+	id: state.id,
+	logado: state.logado
+	
+});
+
+export default connect(mapStateToProps)(AgendarServico);

@@ -1,7 +1,7 @@
 import {http} from './http'
 
 export const buscaCategoria = (local,categoria) => http.get(`${local}`,{params: {
-      categoria: `${categoria}`
+      categoria: categoria
     }
   })
 
@@ -17,7 +17,7 @@ export const buscaIDVetor = (local,id) => http.get(`${local}`,{params: {
 
 
 export const buscaNome = (local,nome) => http.get(`${local}`,{params: {
-      nome: `${nome}`
+      nome: nome
     }
   })
 

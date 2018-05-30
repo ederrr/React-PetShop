@@ -2,11 +2,12 @@ import React, {Component} from 'react';
 import {buscaID} from '../service/acesso.api'
 import ItemCarrinho from './ItemCarrinho';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 
 let carrinhoId = [];
 
-class Especie extends Component{
+class Carrinho extends Component{
 
 	constructor(props){
 
@@ -23,7 +24,6 @@ class Especie extends Component{
 
 		if(this.props.match.params.id !== undefined){
 		carrinhoId = [ ...carrinhoId , this.props.match.params.id];
-		//{console.log(this.state.id)}
 		}else{
 		carrinhoId = [...carrinhoId]
 		}
@@ -33,17 +33,30 @@ class Especie extends Component{
 
 	render(){
 
-		return(
-				<div className= "row w-100 mx-auto">
-				<p className="h4" >Carrinho:</p>
-					{this.state.produtos.map( (produto) => (
-						<ItemCarrinho key={produto.id} produto={produto} />
-					))}
-					<Link to={""} className="btn btn-success text-center w-25 mx-auto my-lg-3" > Fechar Carrinho </Link>
-				</div>
-		);
+		if(this.props.logado){
+
+			return(
+					<div className= "row w-100 mx-auto">
+					<p className="h4" >Carrinho:</p>
+						{this.state.produtos.map( (produto) => (
+							<ItemCarrinho key={produto.id} produto={produto} />
+						))}
+						<Link to={""} className="btn btn-success text-center w-25 mx-auto my-lg-3" > Fechar Carrinho </Link>
+					</div>
+			);
+	
+		}
+		else{
+			return(<p>Cadastre-se ou realize login para acessar.</p>);
+		}
 	}
 }
 
 
-export default Especie;
+const mapStateToProps = state => ({
+	id: state.id,
+	logado: state.logado
+	
+});
+
+export default connect(mapStateToProps)(Carrinho);

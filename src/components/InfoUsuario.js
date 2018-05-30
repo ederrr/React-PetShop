@@ -62,7 +62,7 @@ class InfoUsuario extends Component{
 						<p className="text h5 my-0" >Estado: <small>{this.state.usuario.estado}</small></p>
 
 					</div>
-					<span className="fa fa-edit text-primary col col-offset-12" onclick="editUsuario()"></span>
+					<span className="fa fa-edit text-primary col col-offset-12" ></span>
 				</div>
 
 			</div>

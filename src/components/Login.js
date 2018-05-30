@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {login} from '../service/acesso.api';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import * as loginActions from './actions/Login';
+
 
 
 class Login extends Component{
@@ -13,7 +17,9 @@ class Login extends Component{
 			valueEmail: '',
 			valueSenha: '',
 			nome: "",
-			mensagem:""
+			mensagem:"",
+			id: 0,
+			admin: false
 		}
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,7 +33,8 @@ class Login extends Component{
 	}
 	handleClick(event){
 		if(event.target.name === "sair")
-			this.setState({logado: false});
+			this.setState({logado: false, id: 0, admin: false});
+			this.props.fazLogin( false, 0, false);
 
 	}
 
@@ -39,25 +46,20 @@ class Login extends Component{
 				this.setState({mensagem: "Email ou Senha Inválidos"})
 			}
 			else{
-				res.data.map( (u)=>{return this.setState({ logado: true})} )
+				res.data.map( (u)=>{return ( this.setState({ logado: true, id: u.id, admin: u.admin}))} )
+				res.data.map( (u)=>{return ( this.props.fazLogin( true, u.id, u.admin))} )
 
 			} 
 		})
 
 	}
 
-	componentDidUpdate(state){
-		//this.setState((prevState, props) => ({especie: props.especie}));
-		//buscaCategoria("servico", "").then(res => {  this.setState({servicos: res.data})})
-
-	}
 	render(){
-
 		if(this.state.logado === true){
 			return(
 				<div className="login-area col-lg-2 text-center my-auto">
 					<Link to="/Usuario"><span className="fa fa-user"></span>Usuário</Link> /
-					<Link to={"/"} onClick={this.handleClick} name="sair">Sair</Link>
+					<Link to="" onClick={this.handleClick} name="sair">Sair</Link>
 					<div>
 						<Link to="/Carrinho"><span className="fa fa-shopping-cart"></span>Carrinho</Link>
 						<a href="/"><span className="fa fa-calendar"></span></a>
@@ -88,4 +90,6 @@ class Login extends Component{
 	}
 }
 
-export default Login;
+const mapDispatchToProps = dispatch => bindActionCreators(loginActions, dispatch);
+
+export default connect(null, mapDispatchToProps)(Login);

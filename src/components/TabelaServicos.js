@@ -39,7 +39,7 @@ class TabelaServicos extends Component{
 				</thead>
 				<tbody>
 				{this.state.servicos.map( (servico) => 
-				<tr >
+				<tr key={Math.random()} >
 					<td>{servico.nome}</td>
 					<td>{servico.dataservico}</td>
 					<td>{servico.horaservico}</td>

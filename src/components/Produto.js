@@ -79,7 +79,6 @@ class Produto extends Component{
 
 				<div className="row rounded border p-3">
 				<p className="h5">Informações:</p>
-				{console.log(this.state)}
 
 					<TabelaDescricao descricao={this.state.informacoes}/>
 		

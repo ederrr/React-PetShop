@@ -33,7 +33,7 @@ class TabelaCompras extends Component{
 				</thead>
 				<tbody>
 				{this.state.compras.map( (compra) => 
-				<tr>
+				<tr key={Math.random()}>
 					<td>{compra.nome}</td>
 					<td>{compra.data}</td>
 					<td>R${compra.valor}</td>
