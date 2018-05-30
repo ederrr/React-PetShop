@@ -1,11 +1,11 @@
 import React ,{Component} from 'react';
-import {Link} from 'react-router-dom';
 import {removeID} from '../service/acesso.api'
 
 class ListItemEditar extends Component{
 
 	deletarItem(i){
-		//removeID(this.props.tipo, i.id)
+		removeID(this.props.tipo, i.id)
+
 
 	}
 
@@ -34,7 +34,7 @@ class ListItemEditar extends Component{
 								<div className="container pb-2">
 									<p className=" text-center text font-weight-bold text-secondary mt-2 mb-0 p-2">{i.nome}</p>
 									<p className=" text-center text text-secondary price" >{i.id}</p>
-									{/*<span onClick={this.deletarItem(i)} className="fa fa-trash text-danger px-1 mx-1"></span>*/}
+									<button onClick={() => this.deletarItem(i)} className="fa fa-trash text-danger px-1 mx-1"></button>
 								</div>
 							</div>
 						</div>))}

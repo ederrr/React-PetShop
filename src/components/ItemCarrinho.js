@@ -7,6 +7,12 @@ class ItemCarrinho extends Component{
 		super(props);
 		this.state = {value: '1'};
 		this.handleChange = this.handleChange.bind(this);
+		this.deleteItem = this.deleteItem.bind(this);
+	}
+
+	deleteItem(id){
+		this.props.carrinho.pop(id)
+		//{console.log(this.props)}
 	}
 
 	handleChange(event) {
@@ -37,7 +43,7 @@ class ItemCarrinho extends Component{
 							<input className="input w-25" value={this.state.value} onChange={this.handleChange} type="number" name="qtd" />
 						</span>
 						<span className="col col-3 w-100 text-center my-auto">
-							<span className=" fa fa-trash text-danger">Excluir</span>
+							<button onClick={()=> this.deleteItem(this.props.produto.id)}className=" fa fa-trash text-danger">Excluir</button>
 						</span>
 					
 				</div>				

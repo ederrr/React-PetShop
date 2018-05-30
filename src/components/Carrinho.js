@@ -30,7 +30,6 @@ class Carrinho extends Component{
 		carrinhoId.map((id) => buscaID("produto", id).then(res => this.setState({produtos: this.state.produtos.concat(res.data)})));
 	}
 
-
 	render(){
 
 		if(this.props.logado){
@@ -39,7 +38,7 @@ class Carrinho extends Component{
 					<div className= "row w-100 mx-auto">
 					<p className="h4" >Carrinho:</p>
 						{this.state.produtos.map( (produto) => (
-							<ItemCarrinho key={produto.id} produto={produto} />
+							<ItemCarrinho carrinho={carrinhoId} key={produto.id} produto={produto} />
 						))}
 						<Link to={""} className="btn btn-success text-center w-25 mx-auto my-lg-3" > Fechar Carrinho </Link>
 					</div>
