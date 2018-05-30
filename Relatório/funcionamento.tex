@@ -1,0 +1,30 @@
+\chapter{Funcionamento}
+Como foi dito anteriormente, todo o \emph{site} foi desenvolvido utilizando o
+React, uma biblioteca responsável apenas pelo desenvolvimento do
+\emph{front-end} em \emph{Single Page Application} (\textsc{spa}). Tudo que
+julgamos conveniente à reutilização foi componentizado para reaproveitamento,
+tanto nos itens que precisavam ser reutilizáveis quanto nas partes que tinham
+papéis diferentes dentro do \emph{site}.
+
+Essa biblioteca JavaScript roda através do Node, portanto é necessário a
+instalação do Node e do \textsc{npm} (do inglês, \emph{Node Package Manager})
+para iniciar um projeto. Com o \textsc{npm} é possível baixar e instalar o
+\emph{Create React App}, um pacote responsável por configurar várias tecnologias
+e trazer um projeto pronto para o desenvolvimento com todas as ferramentas
+iniciais mais utilizadas no React. Uma dessas tecnologias é o \textsc{jsx},
+capaz de transformar os códigos JavaScript em códigos parecidos com
+\textsc{html5}.
+
+Pode haver estranhamento com o código desenvolvido por aparentar utilizar
+\textsc{html} misturado com JavaScript, porém, é tudo JavaScript e o Babel nos
+auxilia nessa etapa. Todo o código pode ser realizado em ECMAScrip 6 pois é
+transpilado e convertido em ECMAScript 5 para funcionar nos navegadores atuais
+que ainda não o suportam.
+
+O \emph{site} todo consome uma \textsc{api} que hospedamos no GitHub servindo
+como interface entre nosso \emph{front-end} e \emph{back-end}. O projeto já está
+preparado para consumir esta \textsc{api} hospedada \emph{online}, mas caso
+queira que o projeto rode totalmente \emph{offline}, deixamos preparado para
+isso. Na seção~\ref{sec:offline} será abordada como podermemos rodar \emph{offline}
+utilizando Json Server.
+

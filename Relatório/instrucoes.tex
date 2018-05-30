@@ -1,0 +1,128 @@
+\chapter{Instruções}
+Neste capítulo vamos mostrar como utilizar a nossa aplicação, podendo rodar
+tanto \emph{online} como \emph{offline}. Os comandos estão listados em ordem,
+portanto a execução deles resulta no funcionamento do projeto. Na sequência,
+teremos a instalação das ferramentas necessárias no Linux e no Windows e
+posteriormente como será o procedimento para rodar a aplicação.
+
+\section{Linux}
+\subsection{Instalação do Node}
+\begin{minted}[autogobble,breaklines,linenos,frame=lines,fontsize=\footnotesize]{bash}
+	sudo apt-get install nodejs #Distros baseadas em Debian ou
+	sudo pacman -S nodejs       #Distros baseadas em Arch Linux
+\end{minted}
+
+\subsection{Instalação do \textsc{npm}}
+\begin{minted}[autogobble,breaklines,linenos,frame=lines,fontsize=\footnotesize]{bash}
+	sudo apt-get install npm #Distros baseadas em Debian ou
+	sudo pacman -S npm       #Distros baseadas em Arch Linux
+\end{minted}
+
+\subsection{Instalação do \emph{Create React App}}
+\begin{minted}[autogobble,breaklines,linenos,frame=lines,fontsize=\footnotesize]{bash}
+	npm install -g create-react-app
+\end{minted}
+
+\section{Windows}
+\subsection{Instalação do Node}
+Pode ser baixado através do \emph{site} oficial:
+\href{https://nodejs.org/en/download/}{https://nodejs.org/en/download/}
+
+\subsection{Instalação do \textsc{npm}}
+Como o NPM vem no pacode do Node e é instalado por padrão, não é preciso
+instalá-lo.
+
+\subsection{Instalação do \emph{Create React App}}
+\begin{minted}[autogobble,breaklines,linenos,frame=lines,fontsize=\footnotesize]{bash}
+	npm install -g create-react-app
+\end{minted}
+
+Com estes comandos temos todas as ferramentas necesssárias para o funcionamento
+da nossa aplicação, tanto no Windows como no Linux.
+
+\section{Rodando a aplicação}
+Agora precisamos que entre na pasta do projeto pelo terminal.
+
+\begin{minted}[autogobble,breaklines,linenos,frame=lines,fontsize=\footnotesize]{bash}
+	cd ReactPetShop #Tanto Windows quanto Linux
+\end{minted}
+
+Rode o projeto instalando suas dependências:
+\begin{minted}[autogobble,breaklines,linenos,frame=lines,fontsize=\footnotesize]{bash}
+	npm install && npm start      #Windows
+	sudo npm install && npm start #Linux
+\end{minted}
+
+O projeto é aberto no navegador padrão assim que tudo estiver pronto, caso isso
+não ocorra, é possível acessá-lo através do \emph{link}:
+\href{http://localhost:3000/}{http://localhost:3000/}
+
+\section{Opção \emph{offline}}
+\label{sec:offline}
+Caso queira rodar a \textsc{api} \emph{offline} siga estes comandos, mas nenhum
+deles é necessário para o funcionamento do projeto. Mantenha o terminal do
+processo passado e utilize outra aba/janela do terminal para realizar as
+próximas ações.
+
+\subsection{Instalação do Json Server}
+\begin{minted}[autogobble,breaklines,linenos,frame=lines,fontsize=\footnotesize]{bash}
+	npm install -g json-server      #Windows
+	sudo npm install -g json-server #Linux
+\end{minted}
+
+Vá até a pasta do projeto.
+
+\begin{minted}[autogobble,breaklines,linenos,frame=lines,fontsize=\footnotesize]{bash}
+	cd ReactPetShop #Tanto Windows quanto Linux
+\end{minted}
+
+\subsection{Rodando a \textsc{api} \emph{offline}}
+\begin{minted}[autogobble,breaklines,linenos,frame=lines,fontsize=\footnotesize]{bash}
+	json-server --watch --port 3001 db.json #Tanto Windows quanto Linux
+\end{minted}
+
+Na pasta do projeto, abra o arquivo \texttt{src > service > http.js}. Nesse
+arquivo existem duas linhas de código:
+
+\begin{minted}[autogobble,breaklines,linenos,frame=lines,fontsize=\footnotesize]{javascript}
+	baseURL: 'https://my-json-server.typicode.com/ederrr/ReactPetShop/'
+	//baseURL: 'http://localhost:3001'
+\end{minted}
+
+Comente a primeira linha e descomente a segunda linha, ficando da seguinte
+forma:
+
+\begin{minted}[autogobble,breaklines,linenos,frame=lines,fontsize=\footnotesize]{javascript}
+	//baseURL: 'https://my-json-server.typicode.com/ederrr/ReactPetShop/'
+	baseURL: 'http://localhost:3001'
+\end{minted}
+
+Pronto, seu servidor \emph{offline} está rodando a \textsc{api} e seu projeto
+está consumindo-a.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
