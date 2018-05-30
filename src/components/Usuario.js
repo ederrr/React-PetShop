@@ -8,6 +8,11 @@ import {connect} from 'react-redux';
 import {buscaCategoria} from '../service/acesso.api'
 import {buscaID} from '../service/acesso.api'
 import {buscaNome} from '../service/acesso.api'
+import {Link} from 'react-router-dom';
+import CadastroProduto from './CadastroProduto';
+import CadastroServico from './CadastroServico';
+import CadastroUsuario from './CadastroUsuario';
+
 
 
 class Usuario extends Component{
@@ -31,12 +36,11 @@ class Usuario extends Component{
 	}
 
 	handleClick(e){
-		{console.log(this.state)}
 		if(e.target.name === "buscaP"){
-			if(this.props.tipoP === "id"){
+			if(this.state.tipoP === "id"){
 				buscaID("produto",this.state.valorP).then((res) => { return( this.setState({itensP: res.data}) ) })
 			}
-			else if(this.props.tipoP === "categoria"){
+			else if(this.state.tipoP === "categoria"){
 				buscaCategoria("produto",this.state.valorP).then((res) => { return( this.setState({itensP: res.data}) ) })
 			}
 			else{
@@ -44,18 +48,18 @@ class Usuario extends Component{
 			}
 		}
 		else if(e.target.name === "buscaS"){
-			if(this.props.tipoS === "id"){
+			if(this.state.tipoS === "id"){
 				buscaID("servico",this.state.valorS).then((res) => { return( this.setState({itensS: res.data}) ) })
 			}
-			else if(this.props.tipoS === "nome"){
+			else if(this.state.tipoS === "nome"){
 				buscaNome("servico",this.state.valorS).then((res) => { return( this.setState({itensS: res.data}) ) })
 			}
 		}
 		else if(e.target.name === "buscaU"){
-			if(this.props.tipoU === "id"){
+			if(this.state.tipoU === "id"){
 				buscaID("usuario",this.state.valorU).then((res) => { return( this.setState({itensU: res.data}) ) })
 			}
-			else if(this.props.tipoU === "nome"){
+			else if(this.state.tipoU === "nome"){
 				buscaNome("usuario",this.state.valorU).then((res) => { return( this.setState({itensU: res.data}) ) })
 			}
 		}
@@ -90,43 +94,54 @@ class Usuario extends Component{
 		else if(this.props.logado && this.props.admin ){
 			return(
 				<div className="row w-100 mx-auto">
+
 					<InfoUsuario id={this.props.id}/>
 					<ListPets id={this.props.id}/>
 					<TabelaCompras id={this.props.id} />
 					<TabelaServicos id={this.props.id} tipo={"usuario"} />
+
 					<p className="h4 p-3">Área de Administrador:</p>
-					<div className="row w-100 mx-auto rounded border">
-					<p className="h6 p-2" >Buscar Produtos:</p>
+					<div className="row w-100 mx-auto rounded border mb-1">
+					<Link to="/CadastroProduto" className="fa fa-plus col col-1 col-offset-11 text-success" ></Link>
+					<p className="h6 row p-2" >Buscar Produtos:</p>
 					<input type="text" className="m-2" onChange={this.handleChange} value={this.state.valorP} name="valorP" />
 					<select name="tipoP" className="m-2" onChange={this.handleChange} value={this.state.tipoP}  >
-					<option value="nome">nome</option>
-					<option value="categoria">categoria</option>
-					<option value="id">id</option>
+						<option value="nome">nome</option>
+						<option value="categoria">categoria</option>
+						<option value="id">id</option>
 					</select>
 					<button className="m-2" name="buscaP" onClick={this.handleClick} >Buscar</button>
-					<ListItemEditar itens={this.state.itensP}/>
+					<div className="row w-100 p-2">
+						<ListItemEditar itens={this.state.itensP} tipo={"produto"}/>
+						</div>
 					</div>
 
-					<div className="row w-100 mx-auto rounded border">
-					<p className="h6 p-2" >Buscar Servicos:</p>
+					<div className="row w-100 mx-auto rounded border mb-1">
+					<Link to="/CadastroServico" className="fa fa-plus col col-1 col-offset-11 text-success" ></Link>
+					<p className="h6 row p-2" >Buscar Servicos:</p>
 					<input type="text" className="m-2" onChange={this.handleChange} value={this.state.valorS} name="valorS" />
 					<select name="tipoS" className="m-2" onChange={this.handleChange} value={this.state.tipoS}  >
-					<option value="nome">nome</option>
-					<option value="id">id</option>
+						<option value="nome">nome</option>
+						<option value="id">id</option>
 					</select>
 					<button className="m-2" name="buscaS" onClick={this.handleClick} >Buscar</button>
-					<ListItemEditar itens={this.state.itensS}/>
+					<div className="row w-100 p-2">
+						<ListItemEditar itens={this.state.itensS} tipo={"servico"}/>
+						</div>
 					</div>
 
-					<div className="row w-100 mx-auto rounded border">
-					<p className="h6 p-2" >Buscar Usuários:</p>
+					<div className="row w-100 mx-auto rounded border mb-1">
+					<Link to="/CadastroUsuario" className="fa fa-plus col col-1 col-offset-11 text-success" ></Link>
+					<p className="h6 row p-2" >Buscar Usuários:</p>
 					<input type="text" className="m-2" onChange={this.handleChange} value={this.state.valorU} name="valorU" />
 					<select name="tipoU" className="m-2" onChange={this.handleChange} value={this.state.tipoU}  >
-					<option value="nome">nome</option>
-					<option value="id">id</option>
+						<option value="nome">nome</option>
+						<option value="id">id</option>
 					</select>
 					<button className="m-2" name="buscaU" onClick={this.handleClick} >Buscar</button>
-					<ListItemEditar itens={this.state.itensU}/>
+					<div className="row w-100 p-2">
+						<ListItemEditar itens={this.state.itensU} tipo={"usuario"}/>
+						</div>
 					</div>
 				</div>
 			);
