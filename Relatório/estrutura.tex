@@ -1,14 +1,32 @@
 \chapter{Estrutura do \emph{site}}
 Como o nosso \emph{site} é baseado praticamente em componentização, neste
-capítulo passaremos uma noção de como o estruturamos. No começo de tudo, temos a
-nossa aplicação, mais conhecida como APP, componente a qual consiste o nosso
-\emph{site} inteiro e que será responsável por formar nosso único arquivo
-\texttt{.html}, chamado \texttt{index.html}.
+capítulo passaremos uma noção de como o estruturamos.
 
 \section{APP}
+No começo de tudo, temos a nossa aplicação, mais conhecida como APP, componente
+a qual consiste o nosso \emph{site} inteiro e que será responsável por formar
+nosso único arquivo \texttt{.html}, chamado \texttt{index.html}. A APP está
+separada em 4 partes, as quais são:
+	\begin{description}[style=nextline]
+		\item[Topo] Componente que contém o logo do PetShop, uma barra de
+pesquisa e a parte de \emph{login} ou, se já estiver “\emph{logado}”, área do
+usuário.
+		\item[\emph{Navbar}] Um menu que serve para acessar de forma mais
+intuitiva algumas partes do \emph{site} como \textbf{Início}, o qual você
+consegue acessar de qualquer lugar do \emph{site} a página inicial,
+\textbf{Serviços}, onde você consegue de qualquer lugar da aplicação ir para a
+página de serviços que estão disponíveis, e alguns tipos de animais, como
+\textbf{Cachorros}, \textbf{Gatos}, entre outros, que são um atalho para os
+produtos da respectiva espécie.
+		\item[Conteúdo]
+		\item[Rodapé] No rodapé, há o nome completo de todos os integrantes do
+grupo, onde cada nome é um \emph{link} que redireciona o usuário para o a conta
+do GitHub de cada um.
+	\end{description}
+
 \subsection{Topo}
 \subsubsection{Busca}
 \subsubsection{Login}
-\subsection{Navbar}
+\subsection{\emph{Navbar}}
 \subsection{Conteúdo}
 \subsection{Rodapé}
