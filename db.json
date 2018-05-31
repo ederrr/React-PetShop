@@ -5319,44 +5319,6 @@
           "descricao": "Uma descrição exótica."
         }
       ]
-    },
-    {
-      "id": 0.5413782750134928,
-      "nome": "Teste",
-      "preco": "123",
-      "imagem": [
-        "bird1.jpg",
-        "bird1.jpg",
-        "bird1.jpg",
-        "bird1.jpg"
-      ],
-      "categoria": "cachorros",
-      "informacoes": [
-        {
-          "nome": "marca",
-          "descricao": "1"
-        },
-        {
-          "nome": "peso",
-          "descricao": "1kg"
-        },
-        {
-          "nome": "embalagem",
-          "descricao": "2"
-        },
-        {
-          "nome": "dimensao",
-          "descricao": "2cmx2cmx2cm"
-        },
-        {
-          "nome": "quantidade",
-          "descricao": "2"
-        },
-        {
-          "nome": "descricao",
-          "descricao": "0.5413782750134928"
-        }
-      ]
     }
   ],
   "usuario": [

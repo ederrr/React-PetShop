@@ -9,9 +9,6 @@ import {buscaCategoria} from '../service/acesso.api'
 import {buscaID} from '../service/acesso.api'
 import {buscaNome} from '../service/acesso.api'
 import {Link} from 'react-router-dom';
-import CadastroProduto from './CadastroProduto';
-import CadastroServico from './CadastroServico';
-import CadastroUsuario from './CadastroUsuario';
 
 
 

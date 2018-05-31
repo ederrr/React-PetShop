@@ -21,10 +21,7 @@ export const buscaNome = (local,nome) => http.get(`${local}`,{params: {
     }
   })
 
-export const removeID = (local,id) => http.delete(`${local}`,{params: {
-      id
-    }
-  })
+export const removeID = (local,id) => http.delete(`${local}/${id}`)
 
 export const criaProduto = (p) => http.post("produto", { 
 
