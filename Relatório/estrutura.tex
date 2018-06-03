@@ -21,15 +21,18 @@ pois ela contém a parte do \emph{login}, onde o usuário pode entrar com o seu
 Área de pesquisa que serve para buscar algum produto que tenha na loja. A parte
 da busca ainda não está funcionando completamente, pois busca só palavras
 completas na parte de produtos com \emph{case sensitive}, ou seja, se tiver um
-produto com o nome “Produto 1” e procurarmos com as palavras “prod”, “produto 1”
-“Prod” ou “Produto” não haverá retorno, só teremos sucesso se procurarmos
+produto com o nome “Produto 1” e procurarmos com as palavras “prod”, “produto
+1”, “Prod” ou “Produto” não haverá retorno, só teremos sucesso se procurarmos
 utilizando a palavra “Produto 1”.
 
 \subsubsection{\emph{Login}}
 Este componente, como foi falado anteriormente, serve para o usuário entrar na
 sua conta ou se cadastrar, caso não tiver uma conta cadastrada. Caso
 “\emph{logado}”, o usuário pode acessar a área de usuário, sair da sessão e
-acessar o carrinho de compras.
+acessar o carrinho de compras. Um ponto importante de se falar é que na parte do
+\emph{login} utilizamos um padrão de projeto (\emph{pattern design}) chamado
+\emph{flux/redux}, responsável por criar uma store com as variáveis que
+precisamos acessar por outras componentes.
 
 \subsection{\emph{Navbar}}
 Um menu que serve para acessar de forma mais intuitiva algumas partes do
