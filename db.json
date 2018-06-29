@@ -5867,6 +5867,15 @@
       "dataservico": "04/05/2018",
       "horaservico": "07:00:00",
       "valor": 350
+    },
+    {
+      "id": 0.1359693377539859,
+      "nome": "Banho",
+      "pet": 1,
+      "datacompra": "2018-06-03T13:46:00.691Z",
+      "dataservico": "2018-06-18",
+      "horaservico": "12:31",
+      "valor": 1
     }
   ],
   "compraproduto": [

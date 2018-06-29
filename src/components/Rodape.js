@@ -7,7 +7,7 @@ class Rodape extends Component{
 		return(
 			<footer>
 				<div className="row text-center small p-2">
-					<a href="http://github.com/ederrr" className="col-lg-3 offset-1 col-sm-12 text-secondary">Eder Rosati Ribeiro</a><span> | </span><a className="col-lg-3 col-sm-12 text-secondary">Leonardo de Almeida Lima Zanguetin</a><span> | </span><a href="https://github.com/vpereira13" className="col-lg-3 col-sm-12 text-secondary">Victor Luiz da Silva Mariano Pereira</a>
+					<a href="https://github.com/ederrr" className="col-lg-3 offset-1 col-sm-12 text-secondary">Eder Rosati Ribeiro</a><span> | </span><a href="https://github.com/lzanguetin" className="col-lg-3 col-sm-12 text-secondary">Leonardo de Almeida Lima Zanguetin</a><span> | </span><a href="https://github.com/vpereira13" className="col-lg-3 col-sm-12 text-secondary">Victor Luiz da Silva Mariano Pereira</a>
 				</div>
 			</footer>
 		);

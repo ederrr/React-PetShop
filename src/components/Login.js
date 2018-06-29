@@ -41,7 +41,7 @@ class Login extends Component{
 
 	handleSubmit(event) {
 		event.preventDefault();
-		login("usuario", this.state.valueEmail, this.state.valueSenha).then( res => { 
+		login("usuario", this.state.valueEmail, this.state.valueSenha).then( res => {
 			if (res.data.length === 0) {
 				this.setState({mensagem: "Email ou Senha Inválidos"})
 			}
@@ -49,7 +49,7 @@ class Login extends Component{
 				res.data.map( (u)=>{return ( this.setState({ logado: true, id: u.id, admin: u.admin}))} )
 				res.data.map( (u)=>{return ( this.props.fazLogin( true, u.id, u.admin))} )
 
-			} 
+			}
 		})
 
 	}
@@ -62,7 +62,6 @@ class Login extends Component{
 					<Link to="" onClick={this.handleClick} name="sair">Sair</Link>
 					<div>
 						<Link to="/Carrinho"><span className="fa fa-shopping-cart"></span>Carrinho</Link>
-						<a href="/"><span className="fa fa-calendar"></span></a>
 					</div>
 				</div>
 			);
