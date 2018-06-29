@@ -72,6 +72,13 @@ export const criaUsuario = (u) => http.post("usuario", {
       referencia: u.referencia
 })
 
+export const addCompra = (id, idCompra) => http.post(`usuario`, {params: {
+      id: id
+    }
+  },{ 
+      comprasprodutos: idCompra
+})
+
 
 //Servicos
 

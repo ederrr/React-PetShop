@@ -5337,7 +5337,11 @@
         3,
         4
       ],
-      "comprasprodutos": [],
+      "comprasprodutos": [
+        2,
+        4,
+        6
+      ],
       "comprasservicos": [
         1,
         2
@@ -5371,7 +5375,10 @@
         18,
         19
       ],
-      "comprasprodutos": [],
+      "comprasprodutos": [
+        8,
+        10
+      ],
       "comprasservicos": [
         5
       ],
@@ -5402,7 +5409,11 @@
         8,
         17
       ],
-      "comprasprodutos": [],
+      "comprasprodutos": [
+        1,
+        9,
+        7
+      ],
       "comprasservicos": [
         3
       ],
@@ -5430,7 +5441,9 @@
         14,
         20
       ],
-      "comprasprodutos": [],
+      "comprasprodutos": [
+        5
+      ],
       "comprasservicos": [
         4
       ],
@@ -5459,7 +5472,9 @@
         15,
         16
       ],
-      "comprasprodutos": [],
+      "comprasprodutos": [
+        3
+      ],
       "comprasservicos": [],
       "endereco": "R: Arlindo Nem Sei",
       "numero": 136,
@@ -5469,6 +5484,18 @@
       "cidade": "Saint Charles do Pinhal",
       "estado": "São Paulo",
       "referencia": "Virando logo alí."
+    },
+    {
+      "params": {
+        "id": 1
+      },
+      "id": 6
+    },
+    {
+      "params": {
+        "id": 1
+      },
+      "id": 7
     }
   ],
   "servico": [
@@ -5922,6 +5949,38 @@
       "data": "02/07/2018",
       "quantidade": 3,
       "valor": 8.9
+    },
+    {
+      "id": 0.855156742925528,
+      "nome": "Produto 20",
+      "comprador": 1,
+      "data": "2018-06-04T01:27:15.096Z",
+      "quantidade": 1,
+      "valor": 1.99
+    },
+    {
+      "id": 0.07431126210771777,
+      "nome": "Produto 20",
+      "comprador": 1,
+      "data": "2018-06-04T01:27:15.096Z",
+      "quantidade": 1,
+      "valor": 5.5
+    },
+    {
+      "id": 0.6693904278105145,
+      "nome": "Produto 3",
+      "comprador": 1,
+      "data": "2018-06-04T01:32:46.400Z",
+      "quantidade": 1,
+      "valor": 27
+    },
+    {
+      "id": 0.8916788610097002,
+      "nome": "Produto 2",
+      "comprador": 1,
+      "data": "2018-06-04T01:35:49.632Z",
+      "quantidade": 1,
+      "valor": 75
     }
   ]
 }

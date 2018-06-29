@@ -14,7 +14,7 @@ class TabelaCompras extends Component{
 	}
 
 	componentDidMount(){
-		buscaID("usuario", this.props.id).then((res) => {buscaID("compraproduto", res.data[0].comprasservicos).then((r) => {this.setState({compras: r.data})})});
+		buscaID("usuario", this.props.id).then((res) => {buscaID("compraproduto", res.data[0].comprasprodutos).then((r) => {this.setState({compras: r.data})})});
 	}
 
 	render(){

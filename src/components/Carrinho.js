@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {buscaID} from '../service/acesso.api'
+import {compraProduto} from '../service/acesso.api'
+import {addCompra} from '../service/acesso.api'
 import ItemCarrinho from './ItemCarrinho';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
@@ -18,6 +20,17 @@ class Carrinho extends Component{
 			produtos: []
 		};
 
+	}
+
+	fechaCompra(p, idCompra){
+		compraProduto({id: idCompra, nome: p.nome, comprador: this.props.id ,quantidade: 1,valor: p.preco})
+		
+		addCompra(this.props.id, idCompra)
+
+	}
+
+	fecharCarrinho(){
+		this.state.produtos.map((p) => this.fechaCompra(p, Math.random()))
 	}
 
 	componentDidMount(props){
@@ -40,7 +53,7 @@ class Carrinho extends Component{
 						{this.state.produtos.map( (produto) => (
 							<ItemCarrinho carrinho={carrinhoId} key={produto.id} produto={produto} />
 						))}
-						<Link to={""} className="btn btn-success text-center w-25 mx-auto my-lg-3" > Fechar Carrinho </Link>
+						<Link to={"/"} onClick={() => this.fecharCarrinho()} className="btn btn-success text-center w-25 mx-auto my-lg-3" > Fechar Carrinho </Link>
 					</div>
 			);
 	
