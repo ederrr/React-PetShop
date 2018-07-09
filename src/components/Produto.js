@@ -8,8 +8,6 @@ import {Link} from 'react-router-dom';
 
 class Produto extends Component{
 
-	
-
 	constructor(props){
 
 		super(props)
@@ -28,12 +26,12 @@ class Produto extends Component{
 
 		this.handleClick = this.handleClick.bind(this);
 
-	} 
+	}
 
 
 	componentDidMount(props){
 
-		buscaID(this.props.repos, this.state.id).then(res => this.setState({nome: res.data[0].nome, preco: res.data[0].preco,imagem: res.data[0].imagem,categoria: res.data[0].categoria,imagemGrande: res.data[0].imagem[0],informacoes: res.data[0].informacoes, descricao: res.data[0].informacoes[5].descricao}))
+		buscaID(this.props.repos, this.state.id).then(res => this.setState({nome: res.nome, preco: res.preco,imagem: res.imagem,categoria: res.categoria,imagemGrande: res.imagem[0],informacoes: res.informacoes, descricao: res.informacoes[5].descricao}))
 	}
 
 	handleClick(props, e){
@@ -65,7 +63,7 @@ class Produto extends Component{
 
 						<Link to={`/Carrinho${this.state.id}`} className="btn btn-success text-center w-50 my-lg-5">COMPRAR</Link>
 
-						
+
 						<CalculoFrete produto = {this.state}/>
 
 
@@ -81,7 +79,7 @@ class Produto extends Component{
 				<p className="h5">Informações:</p>
 
 					<TabelaDescricao descricao={this.state.informacoes}/>
-		
+
 				</div>
 
 			</div>

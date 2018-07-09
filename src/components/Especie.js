@@ -13,18 +13,18 @@ class Especie extends Component{
 		this.state = {
 			produtos:[],
 			especie: props.especie
-		} 
+		}
 
 	}
 
 	componentWillReceiveProps(props){
 		this.setState((prevState, props) => ({especie: props.especie}));
-		buscaCategoria(props.repos, props.especie).then(res => this.setState({produtos: res.data}))
+		buscaCategoria(props.repos, props.especie).then(res => this.setState({produtos: res.rows}))
 	}
 
 	componentDidMount(props){
 		this.setState((prevState, props) => ({especie: props.especie}));
-		buscaCategoria(this.props.repos, this.props.especie).then(res => this.setState({produtos: res.data}))
+		buscaCategoria(this.props.repos, this.props.especie).then(res => this.setState({produtos: res.rows}))
 
 	}
 
