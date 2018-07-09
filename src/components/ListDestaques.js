@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {buscaCategoria} from '../service/acesso.api'
+import {bsc} from '../service/acesso.api'
 
 class ListDestaques extends Component{
 
@@ -17,7 +17,7 @@ class ListDestaques extends Component{
 
 	componentDidMount(props){
 		this.setState((prevState, props) => ({especie: props.especie}));
-		buscaCategoria(this.props.repos, this.props.especie).then(res => {  this.setState({produtos: res.data})})
+		bsc(this.props.repos, this.props.especie).then(res => (console.log(res)))
 
 	}
 

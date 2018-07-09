@@ -1,6 +1,4 @@
 import {http} from './http'
-import {db} from './http'
-import {remote} from './http'
 
 export const buscaCategoria = (local,categoria) => http.get(`${local}`,{params: {
       categoria: categoria
@@ -147,6 +145,3 @@ export const compraServico = (cs) => http.post("compraservico", {
       horaservico: cs.hora,
       valor: cs.preco.preco
 })
-
-
-export const bsc = (x,y) => remote.allDocs()
