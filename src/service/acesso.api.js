@@ -1,19 +1,22 @@
-import {http} from './http'
+import {petshop} from './http'
+import {servicos} from './http'
+import {usuarios} from './http'
+import {pets} from './http'
 
-export const buscaCategoria = (local,categoria) => http.allDocs({include_docs: true})
+export const buscaCategoria = (local,categoria) => petshop.allDocs({include_docs: true})
 
-export const buscaID = (local,id) => http.get(`${id}`)
+export const buscaID = (local,id) => petshop.get(`${id}`)
 
-export const buscaIDVetor = (local,id) => http.get(`${local}`,{params: {
+export const buscaIDVetor = (local,id) => petshop.get(`${local}`,{params: {
 	id: id
 	}
 })
 
-export const buscaNome = (local,nome) => http.allDocs({include_docs: true})
+export const buscaNome = (local,nome) => petshop.allDocs({include_docs: true})
 
-export const removeID = (local,id) => http.delete(`${local}/${id}`)
+export const removeID = (local,id) => petshop.delete(`${local}/${id}`)
 
-export const criaProduto = (p) => http.post("produto", {
+export const criaProduto = (p) => petshop.post("produto", {
 
 id: p.id,
 nome:p.nome,
@@ -32,13 +35,10 @@ informacoes:[
 
 //Usuario
 
-export const login = (local,email,senha) => http.get(`${local}`,{params: {
-	email: `${email}`,
-	senha: `${senha}`
-    }
-  })
+export const login = () => usuarios.allDocs({include_docs: true})
+export const buscaUsuario = (local,id) => usuarios.get(`${id}`)
 
-export const criaUsuario = (u) => http.post("usuario", {
+export const criaUsuario = (u) => petshop.post("usuario", {
 
 	id: u.id,
 	admin: u.admin,
@@ -62,7 +62,7 @@ export const criaUsuario = (u) => http.post("usuario", {
 	referencia: u.referencia
 })
 
-export const addCompra = (id, idCompra) => http.post(`usuario`, {params: {
+export const addCompra = (id, idCompra) => petshop.post(`usuario`, {params: {
 	id: id
     }
   },{
@@ -72,14 +72,16 @@ export const addCompra = (id, idCompra) => http.post(`usuario`, {params: {
 
 //Servicos
 
-export const buscaServico = (local,categoria) => http.get(`${local}`)
+export const buscaServico = (local,categoria) => servicos.allDocs({include_docs: true})
 
-export const buscaServicoPet = (local,pet) => http.get(`${local}`,{params: {
+export const buscaIDServicos =  (local,id) => servicos.get(`${id}`)
+
+export const buscaServicoPet = (local,pet) => servicos.get(`${local}`,{params: {
 	pet: `${pet}`
 	}
 })
 
-export const criaServico = (s) => http.post("servico", {
+export const criaServico = (s) => servicos.post("servico", {
 
 	id: s.id,
 	nome: s.nome,
@@ -94,7 +96,9 @@ export const criaServico = (s) => http.post("servico", {
 
 //Pet
 
-export const criaPet = (p) => http.post("pet", {
+export const buscaPet = async (local,id) => pets.get(`${id}`)
+
+export const criaPet = (p) => petshop.post("pet", {
 
 	id: p.id,
 	nome: p.nome,
@@ -112,7 +116,7 @@ export const criaPet = (p) => http.post("pet", {
 
 //Compra Produtos
 
-export const compraProduto = (cp) => http.post("compraproduto", {
+export const compraProduto = (cp) => petshop.post("compraproduto", {
 
 	id: cp.id,
 	nome: cp.nome,
@@ -125,7 +129,7 @@ export const compraProduto = (cp) => http.post("compraproduto", {
 
 //Compra Servicos
 
-export const compraServico = (cs) => http.post("compraservico", {
+export const compraServico = (cs) => petshop.post("compraservico", {
 
 	id: cs.id,
 	nome: cs.nome,

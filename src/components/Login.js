@@ -40,15 +40,21 @@ class Login extends Component{
 
 
 	handleSubmit(event) {
+		var users = []
 		event.preventDefault();
 		login("usuario", this.state.valueEmail, this.state.valueSenha).then( res => {
-			if (res.data.length === 0) {
-				this.setState({mensagem: "Email ou Senha Inválidos"})
+			if (res.total_rows == 0) {
+				this.setState({mensagem: "Nenhum usuário cadastrado."})
 			}
 			else{
-				res.data.map( (u)=>{return ( this.setState({ logado: true, id: u.id, admin: u.admin}))} )
-				res.data.map( (u)=>{return ( this.props.fazLogin( true, u.id, u.admin))} )
-
+				res.rows.map((u) => {if(u.doc.email == this.state.valueEmail && u.doc.senha == this.state.valueSenha ){users = [...users, u.doc]}})
+				if(users.length != [].length){
+					users.map( (u)=>{return ( this.props.fazLogin( true, u._id, u.admin))})
+					users.map( (u)=>{return ( this.setState({ logado: true, id: u._id, admin: u.admin}))} )
+				}
+				else{
+					this.setState({mensagem: "Usuario ou Senha Inválidos."})
+				}
 			}
 		})
 

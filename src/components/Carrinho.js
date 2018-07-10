@@ -24,13 +24,15 @@ class Carrinho extends Component{
 
 	fechaCompra(p, idCompra){
 		compraProduto({id: idCompra, nome: p.nome, comprador: this.props.id ,quantidade: 1,valor: p.preco})
-		
+
 		addCompra(this.props.id, idCompra)
 
 	}
 
 	fecharCarrinho(){
-		this.state.produtos.map((p) => this.fechaCompra(p, Math.random()))
+		carrinhoId = []
+		this.setState({produto: []})
+		//this.state.produtos.map((p) => this.fechaCompra(p, Math.random()))
 	}
 
 	componentDidMount(props){
@@ -40,7 +42,7 @@ class Carrinho extends Component{
 		}else{
 		carrinhoId = [...carrinhoId]
 		}
-		carrinhoId.map((id) => buscaID("produto", id).then(res => this.setState({produtos: this.state.produtos.concat(res.data)})));
+		carrinhoId.map((id) => buscaID("produto", id).then(res => this.setState({produtos: this.state.produtos.concat(res)})));
 	}
 
 	render(){
@@ -56,7 +58,7 @@ class Carrinho extends Component{
 						<Link to={"/"} onClick={() => this.fecharCarrinho()} className="btn btn-success text-center w-25 mx-auto my-lg-3" > Fechar Carrinho </Link>
 					</div>
 			);
-	
+
 		}
 		else{
 			return(<p>Cadastre-se ou realize login para acessar.</p>);
@@ -68,7 +70,7 @@ class Carrinho extends Component{
 const mapStateToProps = state => ({
 	id: state.id,
 	logado: state.logado
-	
+
 });
 
 export default connect(mapStateToProps)(Carrinho);

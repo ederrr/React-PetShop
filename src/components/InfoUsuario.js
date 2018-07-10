@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {buscaID} from '../service/acesso.api.js';
+import {buscaUsuario} from '../service/acesso.api.js';
 
 class InfoUsuario extends Component{
 
@@ -33,7 +33,7 @@ class InfoUsuario extends Component{
 	}
 
 	componentDidMount(){
-		buscaID("usuario", this.props.id).then((res) => {this.setState({usuario: res.data[0]})});
+		buscaUsuario("usuario", this.props.id).then((res) => {this.setState({usuario: res})});
 	}
 
 

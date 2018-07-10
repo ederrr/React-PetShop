@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {buscaID} from '../service/acesso.api.js';
+import {buscaUsuario} from '../service/acesso.api.js';
+import {buscaPet} from '../service/acesso.api.js';
 
 class ListPets extends Component{
 
@@ -13,14 +14,22 @@ class ListPets extends Component{
 
 	}
 	componentDidMount(){
-		buscaID("usuario", this.props.id).then((res) => {buscaID("pet", res.data[0].pets).then((r) => {this.setState({pets: r.data})})});
-	}
+		var temp =[]
+		buscaUsuario("usuario", this.props.id).then(
+			(res) => {
+				res.pets.map( (id) => {
+					buscaPet("pet", id).then((p) => {
+						temp = [...temp,p]
+						this.setState({pets: temp})
+					})
+				})
+			})	}
 
 	render(){
 		return(
 			<div className="row w-100 mx-auto px-auto">
 				<p className="col col-12 h6 my-3">Escolha seu pet:</p>
-				{this.state.pets.map( (pet) => 
+				{this.state.pets.map( (pet) =>
 					<div key={pet.id} className=" col col-lg-3 col-6 shadow rounded text-center p-2 m-auto">
 						<div >
 						<img className="img-fluid " src={require(`../assets/fotos/${pet.foto}`)} alt="foto do pet" />

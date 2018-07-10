@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import InfoPet from './InfoPet';
 import TabelaServicos from './TabelaServicos';
-import {buscaID} from '../service/acesso.api.js';
+import {buscaPet} from '../service/acesso.api.js';
 
 class Pet extends Component{
 	constructor(props){
@@ -27,7 +27,7 @@ class Pet extends Component{
 	}
 
 	componentDidMount(){
-		buscaID("pet", this.props.match.params.id).then((res) => this.setState({pet: res.data[0]}))
+		buscaPet("pet", this.props.match.params.id).then((res) => this.setState({pet: res}))
 	}
 	render(){
 		//{console.log(this.state)}

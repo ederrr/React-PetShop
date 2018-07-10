@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {buscaID} from '../service/acesso.api'
+import {buscaIDServicos} from '../service/acesso.api'
 import {compraServico} from '../service/acesso.api.js';
 import ListPetsAgendar from './ListPetsAgendar'
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 
 
@@ -29,14 +30,14 @@ class AgendarServico extends Component{
 		this.handleChange = this.handleChange.bind(this);
 		this.handleClick = this.handleClick.bind(this);
 
-	} 
+	}
 
 	handleChange(event) {
 		if(event.target.name === "data")
 			this.setState({data: event.target.value});
 		else if(event.target.name === "hora")
 			this.setState({hora: event.target.value});
-		
+
 	}
 	handleClick(e){
 		e.preventDefault();
@@ -44,7 +45,7 @@ class AgendarServico extends Component{
 	}
 
 	componentDidMount(props){
-		buscaID("servico", this.state.idServico ).then(res => {  this.setState({nome: res.data[0].nome, descricao: res.data[0].descricao, imagem: res.data[0].imagem, preco: res.data[0].preco})})
+		buscaIDServicos("servico", this.state.idServico ).then(res => {  this.setState({nome: res.nome, descricao: res.descricao, imagem: res.imagem, preco: res.preco})})
 	}
 
 	render(){
@@ -54,7 +55,7 @@ class AgendarServico extends Component{
 			<div>
 				<p className="h4">Serviços:</p>
 				<div className="row rounded border mx-auto text-center my-3 px-4 py-3" >
-					
+
 					<div className="row">
 						<div className=" col col-lg-4 col-12 imagem my-auto">
 							<img className="img-fluid" src={require(`../assets/fotos/${this.state.imagem}`)} alt="imagem do servico"/>
@@ -75,7 +76,7 @@ class AgendarServico extends Component{
 								<input type="time" className=" input col col-6 col-lg-4 mx-1" name="hora" onChange={this.handleChange} value={this.state.hora}/>
 								<p className="h6 my-3">Valor do Serviço:</p>
 								<p>R${this.state.preco.preco}</p>
-								<button className="btn btn-success" onClick={this.handleClick} >Agendar</button>
+								<Link to={"/"} className="btn btn-success" >Agendar</Link>
 							</div>
 						</div>
 					</div>
@@ -94,7 +95,7 @@ class AgendarServico extends Component{
 const mapStateToProps = state => ({
 	id: state.id,
 	logado: state.logado
-	
+
 });
 
 export default connect(mapStateToProps)(AgendarServico);

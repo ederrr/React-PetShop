@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {buscaID} from '../service/acesso.api.js';
+import {buscaUsuario} from '../service/acesso.api.js';
+import {buscaPet} from '../service/acesso.api.js';
 
 
 class ListPets extends Component{
@@ -15,15 +17,24 @@ class ListPets extends Component{
 
 	}
 	componentDidMount(){
-		buscaID("usuario", this.props.id).then((res) => {buscaID("pet", res.data[0].pets).then((r) => {this.setState({pets: r.data})})});
+		var temp =[]
+		buscaUsuario("usuario", this.props.id).then(
+			(res) => {
+				res.pets.map( (id) => {
+					buscaPet("pet", id).then((p) => {
+						temp = [...temp,p]
+						this.setState({pets: temp})
+					})
+				})
+			})
 	}
 	render(){
 		return(
 			<div className="row w-100 mx-auto">
 				<p className="col col-12 h4 my-3">Meus pets:</p>
-				{this.state.pets.map( (pet) => 
+				{this.state.pets.map( (pet) =>
 					<div key={pet.id} className=" col col-lg-2 col-sm-5 pets shadow rounded text-center p-3 mx-1">
-						<Link to={`/Pet${pet.id}`}>
+						<Link to={`/Pet${pet._id}`}>
 						<img className="img-fluid " src={require(`../assets/fotos/${pet.foto}`)} alt="foto do pet" />
 						</Link>
 						<div className="container">

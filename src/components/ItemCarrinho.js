@@ -11,8 +11,7 @@ class ItemCarrinho extends Component{
 	}
 
 	deleteItem(id){
-		this.props.carrinho.pop(id)
-		//{console.log(this.props)}
+		this.props.carrinho.splice(this.props.carrinho.indexOf(id),1)
 	}
 
 	handleChange(event) {
@@ -24,10 +23,10 @@ class ItemCarrinho extends Component{
 		return(
 
 				<div className="row my-1 border w-100 mx-4 produto"  >
-					
+
 						<span className="col col-3 w-100 text-center ">
-							
-							<Link to= {`/Produto${this.props.produto.id}`}>
+
+							<Link to= {`/Produto${this.props.produto._id}`}>
 							<img className="img-fluid w-50 my-2" src={require(`../assets/fotos/${this.props.produto.imagem[0]}`)} alt="foto do produto" />
 							</Link>
 							<div className="descricao">
@@ -43,10 +42,10 @@ class ItemCarrinho extends Component{
 							<input className="input w-25" value={this.state.value} onChange={this.handleChange} type="number" name="qtd" />
 						</span>
 						<span className="col col-3 w-100 text-center my-auto">
-							<button onClick={()=> this.deleteItem(this.props.produto.id)}className=" fa fa-trash text-danger">Excluir</button>
+							<button onClick={()=> this.deleteItem(this.props.produto._id)}className=" fa fa-trash text-danger">Excluir</button>
 						</span>
-					
-				</div>				
+
+				</div>
 
 		);
 
@@ -54,4 +53,3 @@ class ItemCarrinho extends Component{
 }
 
 export default ItemCarrinho;
-

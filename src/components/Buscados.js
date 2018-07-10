@@ -46,9 +46,8 @@ class Especie extends Component{
 		{console.log(this.state.produtos);}
 		return(
 			<div>
-			<div>
 
-				<p className="h4" >Produtos para {this.props.especie}:</p>
+				<p className="h4" >Produtos para {this.state.nome}:</p>
 
 
 				<div className="row">
@@ -64,8 +63,6 @@ class Especie extends Component{
 						</Link>)})}
 				</div>
 
-			</div>
-			<ListProduto produtos={this.state.produtos} especie={this.state.nome}/>
 			</div>
 		);
 	}
