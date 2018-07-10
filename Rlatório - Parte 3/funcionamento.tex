@@ -1,0 +1,20 @@
+\chapter{Funcionamento}
+Como foi dito anteriormente, todo o \emph{site} foi desenvolvido utilizando o
+\emph{React}, uma biblioteca responsável apenas pelo desenvolvimento do
+\emph{front-end} em \emph{Single Page Application} (\textsc{spa}). Tudo que
+julgamos conveniente à reutilização foi componentizado para reaproveitamento,
+tanto nos itens que precisavam ser reutilizáveis quanto nas partes que tinham
+papéis diferentes dentro do \emph{site}.
+
+Essa biblioteca JavaScript roda através do Node, portanto é necessário a
+instalação do Node e do \textsc{npm} (do inglês, \emph{Node Package Manager})
+para iniciar um projeto. Com o \textsc{npm} é possível baixar e instalar o
+\emph{Create React App}, um pacote responsável por configurar várias tecnologias
+e trazer um projeto pronto para o desenvolvimento com todas as ferramentas
+iniciais mais utilizadas no \emph{React}. Uma dessas tecnologias é o \textsc{jsx}, capaz de transformar os códigos JavaScript em códigos parecidos com \textsc{html5}.
+
+Pode haver estranhamento com o código desenvolvido por aparentar utilizar
+\textsc{html} misturado com JavaScript, porém, é tudo JavaScript e o Babel nos
+auxilia nessa etapa. Todo o código pode ser realizado em \textsc{ecmas}crip 6 pois é transpilado e convertido em \textsc{ecmas}cript 5 para funcionar nos navegadores atuais que ainda não o suportam.
+
+Juntamente com a parte estrutural do \emph{site}, também adicionamos uma base de dados, a qual alimenta a aplicação com o os dados previamente gerados pelo grupo. Em outras palavras, o banco de dados disponibiliza os dados por meio de uma \textsc{api} e o projeto mostra essas informações na tela para o usuário.
