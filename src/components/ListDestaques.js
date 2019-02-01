@@ -22,8 +22,7 @@ class ListDestaques extends Component{
 	}
 
 	render(){
-
-
+		
 		return(
 
 			<div className="div mb-3" >
